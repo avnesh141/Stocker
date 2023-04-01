@@ -1,0 +1,240 @@
+.navbar {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(58, 58, 58);
+    padding: 5px 5px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0, 0.06);
+    font-family: 'Kanit', sans-serif;
+    width: 100vw;
+    height: 12vh;
+}
+
+.logoAndOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+}
+
+#main_logo_andname {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    /* margin-right: 5vw; */
+}
+
+#logo-37 {
+    width: 3vw;
+}
+
+#companyname {
+    font-size: 2.9vh;
+    width: 10vw;
+    /* padding-left: 10px; */
+}
+
+#nav_list_div {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 25vw;
+}
+
+#nav_list {
+    margin: 0 auto;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and(max-width:700px) {
+    #nav_list {
+        max-width: 20vw;
+        flex-direction: row;
+    }
+}
+
+.nav_items {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+#searchbox {
+    /* padding-top: 10px ; */
+    margin: auto 0px;
+    height: 2.4rem;
+    border-radius: 20px;
+    /* margin-right: 2%; */
+}
+
+#login a {
+    font-size: 2.2vh;
+    color: white;
+    text-decoration: none;
+}
+
+#login {
+    padding: 1.2% 4% 1.2% 4%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+#signup a {
+    font-size: 2.2vh;
+    color: white;
+    text-decoration: none;
+}
+
+#logout a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+}
+
+#signup {
+    padding: 1.2% 4% 1.2% 4%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+#logout {
+    padding: 1.2% 4% 1.2% 4%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+.searchAndBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40vw;
+}
+
+.active-search {
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.autocom-box{
+    /* height: 0; */
+    position: fixed;
+    top: 10vh;
+    left: 65vw;
+    background-color: aliceblue;
+    /* padding: 20px; */
+    border-radius: 5px;
+    z-index: 3;
+    width: 18vw;
+    height: 50vh;
+
+}
+
+.stock-name{
+    display: flex;
+    overflow-x: scroll;
+    border-bottom: solid 1px grey;
+    justify-content: space-between;
+
+}
+
+.stock-name:hover{
+    cursor: pointer;
+}
+
+#nav_list {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#nav_list li {
+    list-style: none;
+    padding: 0 50px;
+}
+
+.nav_items {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#main_logo_andname {
+    display: flex;
+    align-items: center;
+}
+
+#companyname {
+    font-size: 2rem;
+    padding-left: 10px;
+}
+
+#searchbox {
+    padding-top: 10px ;
+    margin: auto 0px;
+    height: 2.4rem;
+    border-radius: 20px;
+    margin-right: 2%;
+    outline: none;
+}
+
+#login a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+}
+#signup a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+}
+#login {
+    padding:1.2% 4% 1.2% 4%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+#signup {
+    padding:1.2% 4% 1.2% 4%; 
+    margin-left: 3%;
+    margin-right: 3%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+/* 
+.searchResults{
+    
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    z-index: 5;
+    background-color: rgb(181, 210, 236);
+    height: 50vh;
+}
+
+.searchResult{
+    background-color: rgb(127, 156, 181);
+    color: black;
+    font-size: 72px;;
+}
+*/

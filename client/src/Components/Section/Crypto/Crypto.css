@@ -1,0 +1,10 @@
+.crypto{
+    margin-top: 6rem;
+    display: flexbox;
+ flex-direction: row;
+ justify-content: space-around;
+}
+/* .cryptoCard{
+    display: inline-block;
+    margin: 10px;
+} */

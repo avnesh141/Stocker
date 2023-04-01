@@ -1,0 +1,111 @@
+
+
+.portList {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.buy {
+    border: 2px solid #43bc43;
+    border-radius: 21px;
+    padding: 1% 6%;
+    background-color: #43bc43;
+    color: white;
+}
+
+.buy a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.buy:hover {
+    background-color: #247024;
+}
+
+.sell {
+    border: 2px solid #dc2828;
+    border-radius: 21px;
+    padding: 1% 6%;
+    background-color: #dc2828;
+    color: white;
+}
+
+.sell a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.sell:hover {
+    background-color: #9b1c1c;
+}
+
+.ltp h6 {
+    font-size: 1.1rem;
+}
+
+/* .ltp h6 .pl-green{
+    color: green;
+} */
+.comName h5 {
+    font-size: 1.4rem;
+}
+
+
+
+.portCard {
+    margin: 0.5%;
+    display: inline-block;
+    background: rgb(243, 242, 242);
+    border-radius: 5px;
+    height: fit-content;
+    width: 96%;
+    padding: 10px;
+    box-shadow: 8px 8px 10px 1px rgb(196, 195, 195);
+}
+
+.portContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+
+.qtyifClickedbuy {
+    margin-top: 1.5%;
+    display: none;
+}
+
+
+.qtyifClickedsell {
+    margin-top: 1.5%;
+    display: none;
+}
+
+.comName img{
+width: 40px;
+height: 40px;
+}
+
+.comName{
+    width: 20vw;
+}
+.qtyifClickedbuy button {
+    color: white;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.qtyifClickedsell button {
+    color: white;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,20 @@
+.topportContainer {
+    margin-top: 16vh;
+    text-align: center;
+}
+
+.profNwall{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    justify-content: space-between;
+   right:20px;
+   margin: 20px;
+   padding: 20px;
+}
+.profNwall img{
+    margin: 10px;
+}
+.profNwall img:hover{
+   cursor: pointer;
+}

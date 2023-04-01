@@ -1,0 +1,30 @@
+#aboutusbody{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+    
+}
+#banner{
+    margin: 120px;display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+.aboutUsHeading{
+    font-size: 2rem;
+}
+#first{
+    width: 80%;
+    background-color: #fcfcfc;
+    margin: 10px;
+    padding: 6%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    color: rgb(31, 31, 31);
+}
+
+.text2{
+    font-size:1.5rem;
+}

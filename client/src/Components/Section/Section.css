@@ -1,0 +1,66 @@
+.scontainer{
+    width: 80vw;
+    margin: 100px auto;
+}
+.section-container{
+    width: 100%;
+}
+.optionsList{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px black;
+    margin-bottom: 2%;
+    padding-bottom: 5px;
+}
+
+.option{
+    cursor: pointer;
+}
+
+.active-page{
+    color: rgb(52, 189, 189); 
+  }
+
+  .active-page:after {
+    display:block;
+    content: '';
+    border-bottom: solid 5px rgb(52, 189, 189);  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+  .active-page:hover:after {transform: scaleX(1); }
+.option:after {
+  display:block;
+  content: '';
+  border-bottom: solid 5px rgb(52, 189, 189);  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.option:hover:after {transform: scaleX(1); }
+.parallax-1 {
+    /* The image used */
+    background-image: url("./img/sl_022321_41020_26.png");
+  
+    /* Set a specific height */
+    min-height: 400px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .parallax-2 {
+    /* The image used */
+    background-image: url("https://img.freepik.com/free-vector/stock-exchange-isometric_1284-22377.jpg?w=2000");
+  
+    /* Set a specific height */
+    min-height: 400px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
