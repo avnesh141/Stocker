@@ -106,24 +106,26 @@ const ComapanyCard = (props) => {
               ₹{props.change}({props.changepercent}%)
             </h6>
           </div>
-          <div
+          <button
             className="buy"
             onClick={(e) => {
               e.preventDefault();
               openbuy();
             }}
+            disabled={!localStorage.getItem("token")}
           >
             Buy
-          </div>
-          <div
+          </button>
+          <button
             className="sell"
             onClick={(e) => {
               e.preventDefault();
               opensell();
             }}
+            disabled={!localStorage.getItem("token")}
           >
             Sell
-          </div>
+          </button>
         </div>
         <div className="qtyifClickedbuy" id={`${props.id}buy`}>
           <p>
@@ -133,6 +135,7 @@ const ComapanyCard = (props) => {
               value={data.number}
               name="number"
               onChange={onchange}
+              placeholder="Enter here Amount You want to Buy"
             />
           </p>
           <p>Net value = Qty X LTP</p>
@@ -146,6 +149,7 @@ const ComapanyCard = (props) => {
               value={data.number}
               name="number"
               onChange={onchange}
+              placeholder="Enter here Amount You want to Sell"
             />
           </p>
           <p>Net value = Qty X LTP</p>

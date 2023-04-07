@@ -74,6 +74,7 @@ function Dashboard() {
             src={photo}
             alt=""
           />
+          <div style={{textAlign:"justify"}}>
           <h4
             style={{
               color: "#43bc43",
@@ -82,6 +83,15 @@ function Dashboard() {
           >
             Your Balance: ₹ {user.amount}/-
           </h4>
+          <h4
+            style={{
+              color: "#43bc43",
+              margin: "10px",
+            }}
+            >
+            Amount Invested: ₹ {invest}/-
+          </h4>
+            </div>
         </div>
         <h2
           style={{

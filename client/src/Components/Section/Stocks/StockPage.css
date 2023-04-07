@@ -34,6 +34,7 @@
     margin:auto;
 }
 
+
 .positive{
     color: rgb(0, 214, 0);
 }
@@ -45,6 +46,9 @@
     display: flex;
     margin: 20px 0px;
 }
+button:disabled{
+    cursor:not-allowed;
+}
 
 .compHead{
     margin-right: auto;
@@ -52,6 +56,17 @@
 
 .buy-btn{
     background: rgb(121, 201, 0);
+    color: white;
+    padding: 5px 15px;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    margin-right: 30px;
+    border-radius: 8px;
+}
+.login-redirect{
+     background-color: #328f8a;
+    background-image: linear-gradient(45deg, #328f8a, #08ac4b);
     color: white;
     padding: 5px 15px;
     outline: none;

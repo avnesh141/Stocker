@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Chart from "./Chart";
+import { useNavigate } from "react-router-dom";
 import "./StockPage.css";
 // import axios from "axios";
 import { stocks } from "../../DashBoard/StocksData";
@@ -8,7 +9,7 @@ import { toast } from "react-toastify";
 function StockPage() {
   const { id } = useParams();
   const [compData, setCompData] = useState({});
-
+  const navigate = useNavigate();
   setTimeout(() => {
   // const funcst = () => {
     setCompData(stocks.find((item) => item.symbol === id));
@@ -127,18 +128,27 @@ function StockPage() {
         <div className="stock-icon">
           <img src="https://assets-netstorage.groww.in/stock-assets/logos/NSE.png"></img>
         </div>
-        {localStorage.getItem("token") &&
           <div className="button-div">
             <h1 className="compHead">{compData["name"]}</h1>
-            <button
-              className="buy-btn"
-              onClick={(e) => {
-                // e.preventDefault();
-                openbuy();
-              }}
-            >
-              Buy
-            </button>
+          {localStorage.getItem("token") && <button
+            className="buy-btn"
+            onClick={(e) => {
+              // e.preventDefault();
+              openbuy();
+            }}
+          >
+            Buy
+          </button>}
+          {!localStorage.getItem("token") && <button
+            className="login-redirect"
+            onClick={(e) => {
+              // e.preventDefault();
+              navigate("/login");
+            }}
+          >
+            Login to Buy Or Sell
+          </button>}
+          {localStorage.getItem("token") &&
             <button
               className="sell-btn"
               onClick={(e) => {
@@ -147,8 +157,8 @@ function StockPage() {
               }}
             >
               Sell
-            </button>
-          </div>}
+            </button>}
+          </div>
         <div className="buyselldiv">
           <div className="qtyifClickedbuy buysell" id="buydiv">
             <p>
