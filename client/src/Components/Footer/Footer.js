@@ -43,6 +43,21 @@ function App() {
               <p className="contactus">IIT BHU, VARANASI,221005</p>
               <p className="contactus">E-mail:abc@gmail.com</p>
             </div>
+              <div style={{ width: "200px",height:"200px"}}>
+                <iframe
+                  width="100%"
+                  height="600"
+                  frameborder="0"
+                  marginheight="0"
+                marginwidth="0"
+                style={{widows:"200px",height:"200px"}}
+                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=DG-2%20IIT%20BHU+(Stocker)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                >
+                  <a href="https://www.maps.ie/distance-area-calculator.html">
+                    measure area map
+                  </a>
+                </iframe>
+            </div>
           </div>
         </footer>
       </div>

@@ -1,7 +1,6 @@
 #signupbody {
 	margin: 0;
-	margin-top: 12vh;
-	padding: 0;
+	padding-bottom: 30vh;
 	font-family: Arial, sans-serif;
 	background-color: #328f8a;
     background-image: linear-gradient(45deg, #328f8a, #08ac4b);
@@ -9,7 +8,9 @@
 
 .signup-container {
 	max-width: 600px;
-	margin: 100px auto;
+	position: relative;
+	top: 20vh;
+	margin:auto;
 	padding: 10px;
 	background-color: #f2f2f2;
 }
@@ -23,6 +24,7 @@ form {
 
 .signUpHead {
 	text-align: center;
+	font-weight: bold;
 	margin-bottom: 30px;
 	color: #333;
 }
@@ -43,14 +45,18 @@ input[type="email"],input[type="text"], input[type="number"], input[type="passwo
 }
 
 input[type="submit"] {
-	background-color: #328F8A;
+	display: block;
+	width: 100%;
+	 background-color: #328f8a;
+    background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+	margin: auto;
 	position: relative;
-    left: 42%;
 	color: white;
 	padding: 12px 20px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+
 	transition: background-color 0.3s ease;
 }
 
@@ -107,4 +113,12 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
 	background-color: #216865;
+}
+
+@media (max-width:650px)
+{
+		.signup-container{
+		width: 80%;
+	}
+
 }

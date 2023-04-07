@@ -52,13 +52,14 @@ const Signup = () => {
     <div id="signupbody">
       <div className="signup-container">
         <form>
-          <h2 className="signUpHead">Sign Up</ h2>
+          <h2 className="signUpHead">Sign Up</h2>
           <label htmlFor="name">Enter your name:</label>
           <input
             type="text"
             id="name"
             name="name"
             required
+            placeholder="name"
             onChange={onchange}
           />
           <label htmlFor="number">Phone:</label>
@@ -67,6 +68,7 @@ const Signup = () => {
             id="number"
             name="number"
             required
+            placeholder="7895XXXXXX"
             onChange={onchange}
           />
           <label htmlFor="email">Email:</label>
@@ -74,6 +76,7 @@ const Signup = () => {
             type="email"
             id="email"
             name="email"
+            placeholder="abc@gmail.com"
             required
             onChange={onchange}
           />
@@ -83,6 +86,7 @@ const Signup = () => {
             id="password"
             name="password"
             required
+            placeholder="******"
             onChange={onchange}
           />
           <label htmlFor="confirm-password">Confirm Password:</label>
@@ -90,6 +94,7 @@ const Signup = () => {
             type="password"
             id="confirm-password"
             name="confirmpassword"
+            placeholder="must be same with password"
             required
             onChange={onchangecnf}
           />

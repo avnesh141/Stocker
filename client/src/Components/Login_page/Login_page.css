@@ -1,9 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .login-page {
     position: relative;
-    top: 25%;
-    width: 360px;
-    padding: 8% 0 0;
+    top: 10vh;
+    padding-bottom: 2%;
     margin: auto;
 }
 
@@ -16,7 +15,7 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 364px;
+    max-width: 500px;
     margin: 10vh auto;
     padding: 5vh;
     text-align: center;
@@ -75,4 +74,5 @@
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 75vh;
 }
