@@ -3,7 +3,7 @@ import Chart from "./Chart";
 import { useNavigate } from "react-router-dom";
 import "./StockPage.css";
 // import axios from "axios";
-import { stocks } from "../../DashBoard/StocksData";
+import { stocks } from "./USStockCompanies";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 function StockPage() {
@@ -126,7 +126,7 @@ function StockPage() {
     <div className="stock-page-container">
       <div className="stock-page-box">
         <div className="stock-icon">
-          <img src="https://assets-netstorage.groww.in/stock-assets/logos/NSE.png"></img>
+          <img src={compData.image} style={{width:"100px",height:"100px"}}/>
         </div>
           <div className="button-div">
             <h1 className="compHead">{compData["name"]}</h1>
@@ -190,10 +190,10 @@ function StockPage() {
           </div>
         </div>
         <div className="stock-prices">
-          <h2 className="stock-price">{compData["price"]}</h2>
+          <h2 className="stock-price">$ {compData["price"]}</h2>
           <p className="stock-change positive">
             <div id="pc-change">{compData["change"]}</div>
-            <div id="p-change">({compData["changep"]})</div>
+            <div id="p-change">({compData["changep"]}%)</div>
           </p>
         </div>
         <div className="stock-chart">

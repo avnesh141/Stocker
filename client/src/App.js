@@ -20,7 +20,6 @@ import './App.css'
 // import Profile from "./Components/DashBoard/Profile";
 
 
-import Wallet from "./Components/Wallet/Wallet"
 
 const App = () => {
   return (
