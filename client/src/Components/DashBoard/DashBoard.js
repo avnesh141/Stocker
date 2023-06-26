@@ -58,7 +58,7 @@ function Dashboard() {
   useEffect(() => {
     boughtfunc();
     funcuser();
-  });
+  },[]);
 
   return (
     <div className="Dashboard-page">

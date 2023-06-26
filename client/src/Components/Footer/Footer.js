@@ -1,67 +1,78 @@
-import React from 'react';
-import './Footer.css';
-import Facebook from './facebook.png'
-import Twitter from './twitter.png'
-import Insta from './insta.png'
-import Youtube from './youtube.png'
-import Linkedin from './linkedin.png'
+import React from "react";
+import "./Footer.css";
+import Facebook from "./facebook.png";
+import Twitter from "./twitter.png";
+import Insta from "./insta.png";
+import Youtube from "./youtube.png";
+import Linkedin from "./linkedin.png";
+// const User = require("../../../../models/User");
 
 function App() {
-    return (
-      <div>
-        <footer id="Footer">
-          <div className="footer-container">
-            <div className="left-col">
-              <div className="social-media">
-                <a href="https://www.facebook.com/" target="_blank">
-                  <img src={Facebook} alt="facebook" />
-                </a>
-                <a href="https://www.twitter.com/" target="_blank">
-                  <img src={Twitter} alt="twitter" />
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                  <img src={Insta} alt="insta" />
-                </a>
-                <a href="https://www.youtube.com/" target="_blank">
-                  <img src={Youtube} alt="youtube" />
-                </a>
-                <a href="https://www.linkedin.com/" target="_blank">
-                  <img src={Linkedin} alt="linkedin" />
-                </a>
-              </div>
-              <p className="rights-text">
-                © 2023 Created By Team <b>Debug Entity</b> All Rights Reserved.
-              </p>
+  return (
+    <div>
+      <footer id="Footer">
+        <div className="footer-container">
+          <div className="left-col">
+            <div className="social-media">
+              <a href="https://www.facebook.com/" target="_blank">
+                <img src={Facebook} alt="facebook" />
+              </a>
+              <a href="https://www.twitter.com/" target="_blank">
+                <img src={Twitter} alt="twitter" />
+              </a>
+              <a href="https://www.instagram.com/" target="_blank">
+                <img src={Insta} alt="insta" />
+              </a>
+              <a href="https://www.youtube.com/" target="_blank">
+                <img src={Youtube} alt="youtube" />
+              </a>
+              <a href="https://www.linkedin.com/" target="_blank">
+                <img src={Linkedin} alt="linkedin" />
+              </a>
             </div>
-            {/* <div id="map"> */}
-            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14431.981038962364!2d82.9825485!3d25.2707449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e33ef9b1f7cdd%3A0x7555db6d623dc140!2sIndian%20Institute%20of%20Technology%20(BHU)%20Varanasi!5e0!3m2!1sen!2sin!4v1679940431209!5m2!1sen!2sin" width="40" height="30" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p className="rights-text">
+              © 2023 Created By Team <b>Debug Entity</b> All Rights Reserved.
+            </p>
+          </div>
+          {/* <div id="map"> */}
+          {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14431.981038962364!2d82.9825485!3d25.2707449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e33ef9b1f7cdd%3A0x7555db6d623dc140!2sIndian%20Institute%20of%20Technology%20(BHU)%20Varanasi!5e0!3m2!1sen!2sin!4v1679940431209!5m2!1sen!2sin" width="40" height="30" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div> */}
-            <div className="right-col">
-              <h1>Contact Us</h1>
-              <div className="border"></div>
-              <p className="contactus">9876543210</p>
-              <p className="contactus">IIT BHU, VARANASI,221005</p>
-              <p className="contactus">E-mail:abc@gmail.com</p>
-            </div>
-              <div style={{ width: "200px",height:"200px"}}>
-                <iframe
-                  width="100%"
-                  height="600"
-                  frameborder="0"
-                  marginheight="0"
-                marginwidth="0"
-                style={{widows:"200px",height:"200px"}}
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=DG-2%20IIT%20BHU+(Stocker)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                >
-                  <a href="https://www.maps.ie/distance-area-calculator.html">
-                    measure area map
-                  </a>
-                </iframe>
+          <div className="right-col">
+            <h1>Contact Us</h1>
+            <div className="right-colchild">
+              <div>
+                <div className="border"></div>
+                <p className="contactus">9876543210</p>
+                <p className="contactus">IIT BHU, VARANASI,221005</p>
+                <p className="contactus">E-mail:abc@gmail.com </p>
+              </div>
+              {/* <div>
+                <div className="border"></div>
+                <p className="contactus">9876543210</p>
+                <p className="contactus">IIT BHU, VARANASI,221005</p>
+                <p className="contactus">E-mail:abc@gmail.com </p>
+              </div> */}
             </div>
           </div>
-        </footer>
-      </div>
-    );
+          <div style={{ width: "200px", height: "200px" }}>
+            <iframe
+              width="100%"
+              height="600"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style={{ widows: "200px", height: "200px" }}
+              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=DG-2%20IIT%20BHU+(Stocker)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            >
+              <a href="https://www.maps.ie/distance-area-calculator.html">
+                measure area map
+              </a>
+            </iframe>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

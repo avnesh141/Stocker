@@ -8,6 +8,7 @@ const fetchuser = require("../middleware/fetchuser");
 
 const router = express.Router();
 
+
 router.post(
   "/register",
   body("name", "Must be three characters long").isLength({ min: 3 }),

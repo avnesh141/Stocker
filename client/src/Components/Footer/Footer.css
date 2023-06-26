@@ -47,6 +47,15 @@ body {
 .right-col h1 {
     font-size: 26px;
 }
+.right-col{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.right-colchild   {
+    display: flex;
+    flex-direction: row;
+}
 
 .border {
     width: 100px;
@@ -107,13 +116,17 @@ body {
     }
 
     .right-col {
-        width: 100%;
+        /* width: 100%; */
+        justify-items: center;
         /* margin-bottom: 60px; */
     }
 
     .left-col {
         width: 100%;
         text-align: center;
+    }
+    .right-colchild{
+        flex-direction: column;
     }
 }
 
@@ -123,5 +136,10 @@ body {
         margin: 0;
         width: 100%;
         margin-top: 20px;
+    }
+}
+@media screen and (max-width:500px){
+    .footer-container{
+        justify-content: center;
     }
 }

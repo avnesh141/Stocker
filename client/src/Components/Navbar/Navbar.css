@@ -18,13 +18,32 @@ nav {
     width: 100vw;
     height: 12vh;
 }
+#navlist_small{
+    position: absolute;
+    top: 12vh;
+    width: 100vw;
+    background-color: rgb(58, 58, 58);
+    height: 100vh;
+    left: 0;
+}
 
 .logoAndOptions {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40vw;
+   margin-left: 4%;
 }
+.navitems{
+    list-style: none;
+    margin: 50px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navitems li {
+    margin: 10px;
+}
+
 
 #main_logo_andname {
     display: flex;
@@ -45,15 +64,16 @@ nav {
 }
 
 #nav_list_div {
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: center; */
-    width: 25vw;
+    width: 100%;
+    /* justify-content: center; */
+    justify-content: space-between;
+    /* width: 25vw; */
 }
 
 #nav_list {
-    margin: 0 auto;
-    width: 25vw;
+    /* width: 25vw; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -121,12 +141,15 @@ nav {
     border: 2px solid white;
     border-radius: 12px;
 }
+.first{
+    display: flex;
+}
 
 .searchAndBtns {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 30vw;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* width: 30vw; */
 }
 
 .active-search {
@@ -169,7 +192,7 @@ nav {
 
 #nav_list li {
     list-style: none;
-    padding: 0 50px;
+    padding: 0 2vw;
 }
 
 .nav_items {
@@ -238,3 +261,9 @@ nav {
     font-size: 72px;;
 }
 */
+@media (max-width:800px) {
+    #nav_list_div{
+        display:none;
+    }
+    
+}

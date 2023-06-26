@@ -1,24 +1,32 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import React, {  useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Navbar.css";
+import Hamburger from 'hamburger-react'
 const Navbar = () => {
-
   const [click, sclick] = useState(false);
   const navigate = useNavigate();
   const onclick = () => {
     console.log("clicke");
     localStorage.removeItem("token");
-    navigate('/login')
+    navigate("/login");
   };
+  const [width, setWidth] = useState(window.innerWidth);
+   const updateWidth = () => {
+     setWidth(window.innerWidth);
+   };
+   useEffect(() => {
+     window.addEventListener("resize", updateWidth);
+     return () => window.removeEventListener("resize", updateWidth);
+   }, []);
   const [searchResults, setSearchResults] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [active, setActive] = useState(0);
+  const [isOpen, setOpen] = useState(false);
   var comp = [];
   const searchHandle = (e) => {
     sclick(true);
-    if(e.target.value === ''){
+    if (e.target.value === "") {
       setCompanies([]);
     }
     var search = e.target.value;
@@ -37,7 +45,7 @@ const Navbar = () => {
     // } else {
     //   searchWrapper.classList.remove("active"); //hide autocomplete box
     // }
-    
+
     axios
       .get(
         `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${search}&apikey=QHQFTL0K4L4CTGWG`
@@ -45,48 +53,50 @@ const Navbar = () => {
       .then((res) => {
         console.log(res);
         setSearchResults(res.data.bestMatches);
-        if(searchResults.length!==0){
-          searchResults.forEach(element => {
-            comp.push({name : element['2. name'], symbol : element['1. symbol']})
-          });}
-           setCompanies(comp);
-           comp = []
-           if(e.target.length===0){
-            document.getElementById('sugg').classList.add('display-none');
-            document.getElementById('sugg').classList.remove('display-flex');
+        if (searchResults.length !== 0) {
+          searchResults.forEach((element) => {
+            comp.push({
+              name: element["2. name"],
+              symbol: element["1. symbol"],
+            });
+          });
+        }
+        setCompanies(comp);
+        comp = [];
+        if (e.target.length === 0) {
+          document.getElementById("sugg").classList.add("display-none");
+          document.getElementById("sugg").classList.remove("display-flex");
 
-            setActive(0);
-          }
-          else{document.getElementById('sugg').classList.add('display-flex');
-          document.getElementById('sugg').classList.remove('display-none');
-            setActive(1);
-          }
-           if(active){
-            document.getElementById('sugg').classList.add('active-search');
-          }
-          else{
-            document.getElementById('sugg').classList.remove('active-search');
-          }
-          console.log(companies)
+          setActive(0);
+        } else {
+          document.getElementById("sugg").classList.add("display-flex");
+          document.getElementById("sugg").classList.remove("display-none");
+          setActive(1);
+        }
+        if (active) {
+          document.getElementById("sugg").classList.add("active-search");
+        } else {
+          document.getElementById("sugg").classList.remove("active-search");
+        }
+        console.log(companies);
       });
-      
-      console.log(searchResults);
-      
-      // setTimeout(()=>{
-      //   if(e.target.value !=='') {
-      //     document.getElementById('sugg').removeChild(div);
-      //     searchResults.map((data)=>{
-      //       var div= document.createElement('div');
-      //       div.innerHTML = data.name;
-      //       document.getElementById('sugg').appendChild(div);
-      //     })
-      //   }
-      // },500)
+
+    console.log(searchResults);
+
+    // setTimeout(()=>{
+    //   if(e.target.value !=='') {
+    //     document.getElementById('sugg').removeChild(div);
+    //     searchResults.map((data)=>{
+    //       var div= document.createElement('div');
+    //       div.innerHTML = data.name;
+    //       document.getElementById('sugg').appendChild(div);
+    //     })
+    //   }
+    // },500)
     console.log(companies);
-    if (!search)
-    {
+    if (!search) {
       sclick(false);
-      }
+    }
   };
   // useEffect(() => {
   //  setTimeout(() => {
@@ -95,11 +105,11 @@ const Navbar = () => {
   // })
 
   const showStockPage = (e) => {
-    console.log('clicked')
+    console.log("clicked");
     var key = e.target.key;
-    localStorage.setItem('selectedCard',key)
-    navigate('/stockpage')
-  }
+    localStorage.setItem("selectedCard", key);
+    navigate("/stockpage");
+  };
   return (
     <div>
       <nav className="nav-pc">
@@ -164,85 +174,167 @@ const Navbar = () => {
             </Link>
             <span id="companyname">Stocker</span>
           </div>
-          <div id="nav_list_div">
-            <ul id="nav_list">
-              <li>
-                <Link className="nav_items" to="/">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="nav_items" to="/trade">
-                  Trade
-                </Link>
-              </li>
-              <li>
-                <Link className="nav_items" to="/aboutus">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                {localStorage.getItem("token") && (
-                  <Link className="nav_items" to="/dashboard">
-                 DashBoard
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </div>
         </div>
-        <div className="searchAndBtns">
-          <div className="searchAndResults">
-            <input
-              id="searchbox"
-              type="text"
-              placeholder="Search for stocks..."
-              onKeyUp={(e) => searchHandle(e)}
-            />
-          </div>
-          {!localStorage.getItem("token") && (
-            <div id="login">
-              <Link to="/login">Login</Link>
-            </div>
-          )}
-          {!localStorage.getItem("token") && (
-            <div id="signup">
-              <Link to="/signup">Signup</Link>
-            </div>
-          )}
-          {localStorage.getItem("token") && (
-            <button
-              id="logout"
-              type="button"
-              onClick={onclick}
-              className="buttonn"
-            >
-              Logout
-            </button>
-            // <div id="logout">
-            //   <Link to="/login" onClick={onclick}>
-            //     LogOut
-            //   </Link>
-            // </div>
-          )}
-        </div>
-      </nav>
-      {
-    click &&
-        <div id='sugg' class="autocom-box">
-              {
-                  companies.length!==0 ?
-                  companies.map((company)=>{
-                    return <div key={company.symbol} className="stock-name" onClick={(e)=>showStockPage(e)}>{company.symbol}</div>
-                  }):<div style={{display:'none'}}>
+        {width < 800 && (
+          <div className="menuToggle">
+            <Hamburger toggled={isOpen} toggle={setOpen} />
+
+            { isOpen && <div id="navlist_small">
+              <ul className="navitems">
+                <li>
+                  <div className="searchAndResults">
+                    <input
+                      id="searchbox"
+                      type="text"
+                      placeholder="Search for stocks..."
+                      onKeyUp={(e) => searchHandle(e)}
+                    />
                   </div>
-                
-              }
+                </li>
+                <li>
+                  <Link className="nav_items" to="/">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav_items" to="/trade">
+                    Trade
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav_items" to="/aboutus">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  {localStorage.getItem("token") && (
+                    <Link className="nav_items" to="/dashboard">
+                      DashBoard
+                    </Link>
+                  )}
+                </li>
+                <li>
+                  {!localStorage.getItem("token") && (
+                    <div id="login">
+                      <Link to="/login">Login</Link>
+                    </div>
+                  )}
+                  {!localStorage.getItem("token") && (
+                    <div id="signup">
+                      <Link to="/signup">Signup</Link>
+                    </div>
+                  )}
+                  {localStorage.getItem("token") && (
+                    <button
+                      id="logout"
+                      type="button"
+                      onClick={onclick}
+                      className="buttonn"
+                    >
+                      Logout
+                    </button>
+                    // <div id="logout">
+                    //   <Link to="/login" onClick={onclick}>
+                    //     LogOut
+                    //   </Link>
+                    // </div>
+                  )}
+                </li>
+              </ul>
+            </div>}
+          </div>
+        )}
+        {width > 800 && (
+          <div id="nav_list_div">
+            <div className="first">
+              <ul id="nav_list">
+                <li>
+                  <Link className="nav_items" to="/">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav_items" to="/trade">
+                    Trade
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav_items" to="/aboutus">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  {localStorage.getItem("token") && (
+                    <Link className="nav_items" to="/dashboard">
+                      DashBoard
+                    </Link>
+                  )}
+                </li>
+              </ul>
             </div>
-                }
+            {/* </div> */}
+            <div className="searchAndBtns">
+              <div className="searchAndResults">
+                <input
+                  id="searchbox"
+                  type="text"
+                  placeholder="Search for stocks..."
+                  onKeyUp={(e) => searchHandle(e)}
+                />
+              </div>
+              {!localStorage.getItem("token") && (
+                <div id="login">
+                  <Link to="/login">Login</Link>
+                </div>
+              )}
+              {!localStorage.getItem("token") && (
+                <div id="signup">
+                  <Link to="/signup">Signup</Link>
+                </div>
+              )}
+              {localStorage.getItem("token") && (
+                <button
+                  id="logout"
+                  type="button"
+                  onClick={onclick}
+                  className="buttonn"
+                >
+                  Logout
+                </button>
+                // <div id="logout">
+                //   <Link to="/login" onClick={onclick}>
+                //     LogOut
+                //   </Link>
+                // </div>
+              )}
+            </div>
+          </div>
+        )}
+      </nav>
+      {click && (
+        <div id="sugg" class="autocom-box">
+          {companies.length !== 0 ? (
+            companies.map((company) => {
+              return (
+                <div
+                  key={company.symbol}
+                  className="stock-name"
+                  onClick={(e) => showStockPage(e)}
+                >
+                  {company.symbol}
+                </div>
+              );
+            })
+          ) : (
+            <div style={{ display: "none" }}></div>
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Navbar;
-{/* <div>{company.symbol}</div> */}
+{
+  /* <div>{company.symbol}</div> */
+}

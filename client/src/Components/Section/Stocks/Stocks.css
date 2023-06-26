@@ -66,8 +66,8 @@ div::-webkit-scrollbar {
   display: inline-block;
   background: rgb(243, 242, 242);
   border-radius: 5px;
-  height: 20vh;
-  width: 30%;
+  height: 22vh;
+  width: 27%;
   padding: 10px;
   box-shadow: 1px 1px 10px 1px rgb(196, 195, 195);
   overflow: scroll;
@@ -85,8 +85,8 @@ div::-webkit-scrollbar {
   display: inline-block;
   background: rgb(243, 242, 242);
   border-radius: 5px;
-  height: 20vh;
-  width: 30%;
+  height: 22vh;
+  width: 27%;
   padding: 10px;
   box-shadow: 1px 1px 10px 1px rgb(196, 195, 195);
   overflow: scroll;

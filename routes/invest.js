@@ -8,7 +8,7 @@ const User = require("../models/User");
 
 router.get("/get", fetchuser, async (req, res) => {
   try {
-    console.log("getStocks");
+    // console.log("getStocks");
     const stocks = await Stock.find({ user: req.user.id });
     res.json({ stocks });
   } catch (error) {
