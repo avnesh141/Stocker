@@ -14,8 +14,9 @@ div::-webkit-scrollbar {
 .indexCards {
   margin: 20px 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px;
+      flex-wrap: wrap;
 }
 
 
@@ -67,7 +68,7 @@ div::-webkit-scrollbar {
   background: rgb(243, 242, 242);
   border-radius: 5px;
   height: 22vh;
-  width: 27%;
+  width: 320px;
   padding: 10px;
   box-shadow: 1px 1px 10px 1px rgb(196, 195, 195);
   overflow: scroll;
@@ -86,7 +87,7 @@ div::-webkit-scrollbar {
   background: rgb(243, 242, 242);
   border-radius: 5px;
   height: 22vh;
-  width: 27%;
+  width: 320px;
   padding: 10px;
   box-shadow: 1px 1px 10px 1px rgb(196, 195, 195);
   overflow: scroll;
