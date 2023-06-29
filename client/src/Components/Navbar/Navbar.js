@@ -103,6 +103,9 @@ const Navbar = () => {
   //    sclick(false);
   //  }, 3000);
   // })
+  const onclickmenu = () => {
+    setOpen(false);
+   }
 
   const showStockPage = (e) => {
     console.log("clicked");
@@ -179,69 +182,72 @@ const Navbar = () => {
           <div className="menuToggle">
             <Hamburger toggled={isOpen} toggle={setOpen} />
 
-            { isOpen && <div id="navlist_small">
-              <ul className="navitems">
-                <li>
-                  <div className="searchAndResults">
-                    <input
-                      id="searchbox"
-                      type="text"
-                      placeholder="Search for stocks..."
-                      onKeyUp={(e) => searchHandle(e)}
-                    />
-                  </div>
-                </li>
-                <li>
-                  <Link className="nav_items" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav_items" to="/trade">
-                    Trade
-                  </Link>
-                </li>
-                <li>
-                  <Link className="nav_items" to="/aboutus">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  {localStorage.getItem("token") && (
-                    <Link className="nav_items" to="/dashboard">
-                      DashBoard
+            {isOpen && (
+              <div id="navlist_small">
+                <ul className="navitems">
+                  <li>
+                    <div className="searchAndResults">
+                      <input
+                        id="searchbox"
+                        type="text"
+                        placeholder="Search for stocks..."
+                        onKeyUp={(e) => searchHandle(e)}
+                      />
+                    </div>
+                  </li>
+                  <li onClick={onclickmenu}>
+                    <Link className="nav_items" to="/">
+                      Home
                     </Link>
-                  )}
-                </li>
-                <li>
-                  {!localStorage.getItem("token") && (
-                    <div id="login">
-                      <Link to="/login">Login</Link>
-                    </div>
-                  )}
-                  {!localStorage.getItem("token") && (
-                    <div id="signup">
-                      <Link to="/signup">Signup</Link>
-                    </div>
-                  )}
-                  {localStorage.getItem("token") && (
-                    <button
-                      id="logout"
-                      type="button"
-                      onClick={onclick}
-                      className="buttonn"
-                    >
-                      Logout
-                    </button>
-                    // <div id="logout">
-                    //   <Link to="/login" onClick={onclick}>
-                    //     LogOut
-                    //   </Link>
-                    // </div>
-                  )}
-                </li>
-              </ul>
-            </div>}
+                  </li>
+                  <li onClick={onclickmenu}>
+                    <Link className="nav_items" to="/trade">
+                      Trade
+                    </Link>
+                  </li>
+                  <li onClick={onclickmenu}>
+                    <Link className="nav_items" to="/aboutus">
+                      About Us
+                    </Link>
+                  </li>
+                  <li onClick={onclickmenu}>
+                    {localStorage.getItem("token") && (
+                      <Link className="nav_items" to="/dashboard">
+                        DashBoard
+                      </Link>
+                    )}
+                  </li>
+                  <li onClick={onclickmenu}
+                  >
+                    {!localStorage.getItem("token") && (
+                      <div id="login">
+                        <Link to="/login">Login</Link>
+                      </div>
+                    )}
+                    {!localStorage.getItem("token") && (
+                      <div id="signup">
+                        <Link to="/signup">Signup</Link>
+                      </div>
+                    )}
+                    {localStorage.getItem("token") && (
+                      <button
+                        id="logout"
+                        type="button"
+                        onClick={onclick}
+                        className="buttonn"
+                      >
+                        Logout
+                      </button>
+                      // <div id="logout">
+                      //   <Link to="/login" onClick={onclick}>
+                      //     LogOut
+                      //   </Link>
+                      // </div>
+                    )}
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         )}
         {width > 800 && (
