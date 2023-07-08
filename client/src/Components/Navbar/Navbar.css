@@ -197,6 +197,7 @@ nav {
 #nav_list {
     padding-top: 10px;
     display: flex;
+    
     align-items: center;
 }
 
