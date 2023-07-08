@@ -18,7 +18,7 @@ router.post(
     let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log({ error: errors });
+      // console.log(errors[0].msg);
       res.status(400).send(errors);
     } else {
       const email = req.body.email;

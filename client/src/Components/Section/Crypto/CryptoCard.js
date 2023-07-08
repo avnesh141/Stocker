@@ -137,7 +137,7 @@ const ComapanyCard = (props) => {
               placeholder="Enter here Amount You want to Buy"
             />
           </p>
-          <p>Net value = Qty X LTP</p>
+          <p>Net value ={data.price*data.number} </p>
           <button onClick={confirmbuy}>Confirm trans.</button>
         </div>
         <div className="qtyifClickedsell" id={`${props.id}sell`}>
@@ -151,7 +151,7 @@ const ComapanyCard = (props) => {
               placeholder="Enter here Amount You want to Sell"
             />
           </p>
-          <p>Net value = Qty X LTP</p>
+          <p>Net value ={data.price*data.number}</p>
           <button onClick={confirmsell}>Confirm trans.</button>
         </div>
       </div>

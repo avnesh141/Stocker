@@ -34,7 +34,7 @@ const Login_page = () => {
       }
       else
    {
-     toast.error("Something went wrong")
+     toast.error(json.error)
      }
  };
 

@@ -12,6 +12,7 @@ const CandlestickChart = (props) => {
         // TIME_SERIES_MONTHLY_ADJUSTED
         // Monthly Adjusted Time Series
         // setdata(parseData["Time Series (5min)"]);
+        // console.log(parseData);
         const ndata = parseData["Monthly Adjusted Time Series"];
         // console.log(typeof (parseData["Monthly Adjusted Time Series"]));
         let dates = Object.keys(ndata);

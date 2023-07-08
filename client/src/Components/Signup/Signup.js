@@ -41,10 +41,9 @@ const Signup = () => {
     if (json.success) {
       toast.success("Registered SuccessFully");
       localStorage.setItem("token", json.authtoken);
-      console.log(json);
       navigate("/dashboard");
     } else {
-      toast.error("Something went wrong");
+      toast.error(json.error);
     }
   };
 
