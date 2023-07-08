@@ -102,7 +102,7 @@ margin: 10px;
 
 
 .comName{
-    width: 20vw;
+    /* width: 20vw; */
     display: flex;
     justify-content: space-between;
 }

@@ -18,6 +18,7 @@
     max-width: 500px;
     margin: 10vh auto;
     padding: 5vh;
+    width: 90%;
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -33,6 +34,7 @@
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+    height: 30px;
 }
 
 .form button {
@@ -75,5 +77,5 @@
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 85vh;
+    height: 100vh;
 }

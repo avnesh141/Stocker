@@ -26,6 +26,7 @@
     padding: 1% 6%;
     background-color: #43bc43;
     color: white;
+    width: 100px;
 }
 
 .buy a {
@@ -44,6 +45,7 @@
     padding: 1% 6%;
     background-color: #dc2828;
     color: white;
+    width: 100px;
 }
 
 .sell a {
@@ -120,4 +122,14 @@
 }
 .comName a{
   text-decoration: none;
+}
+.buysellButtons{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+@media  (max-width:500px) {
+    .portContainerD{
+        justify-content: center;
+    }    
 }

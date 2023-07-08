@@ -100,22 +100,25 @@ console.log("ss",props.symbol);
   return (
     <div className="portList">
       <div className="portCard">
-        <div className="portContainer">
+        <div className="portContainer portContainerD">
           <div className="comName">
              <Link to={`/${props.symbol}`}><h5>{props.company}</h5></Link>
-            <h6>NET QTY {props.number}</h6>
           </div>
+         < div>
+            <h6>NET QTY {props.number}</h6>
+         </div>
           <div className="ltp">
             <h6>LTP ₹{props.price}</h6>
             <h6>P&L ₹13.20</h6>
           </div>
+          <div className='buysellButtons'>
           <div
             className="buy"
             onClick={(e) => {
               e.preventDefault();
               openbuy();
             }}
-          >
+            >
             Buy
           </div>
           <div
@@ -124,9 +127,10 @@ console.log("ss",props.symbol);
               e.preventDefault();
               opensell();
             }}
-          >
+            >
             Sell
           </div>
+            </div>
         </div>
         <div className="qtyifClickedbuy buysell" id={`${props.id}buy`}>
           <p>

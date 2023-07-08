@@ -108,7 +108,7 @@ nav {
 }
 
 #login {
-    padding: 1.2% 4% 1.2% 4%;
+    /* padding: 1.2% 4% 1.2% 4%; */
     margin-left: 3%;
     margin-right: 3%;
     border: 2px solid white;
@@ -131,7 +131,7 @@ nav {
 }
 
 #signup {
-    padding: 1.2% 4% 1.2% 4%;
+    /* padding: 1.2% 4% 1.2% 4%; */
     margin-left: 3%;
     margin-right: 3%;
     border: 2px solid white;
@@ -160,6 +160,7 @@ nav {
     /* align-items: center; */
     /* justify-content: space-between; */
     /* width: 30vw; */
+    text-align: center;
 }
 
 .active-search {
@@ -197,7 +198,7 @@ nav {
 #nav_list {
     padding-top: 10px;
     display: flex;
-    
+
     align-items: center;
 }
 
@@ -242,18 +243,20 @@ nav {
     text-decoration: none;
 }
 #login {
-    padding:1.2% 4% 1.2% 4%; 
+    /* padding:1.2% 4% 1.2% 4%;  */
     margin-left: 3%;
     margin-right: 3%;
     border: 2px solid white;
     border-radius: 12px;
+    width: 120px;
 }
 #signup {
-    padding:1.2% 4% 1.2% 4%; 
+    /* padding:1.2% 4% 1.2% 4%;  */
     margin-left: 3%;
     margin-right: 3%;
     border: 2px solid white;
     border-radius: 12px;
+    width: 120px;
 }
 /* 
 .searchResults{

@@ -11,10 +11,17 @@
    right:20px;
    margin: 20px;
    padding: 20px;
+   flex-wrap: wrap;
 }
 .profNwall img{
     margin: 10px;
 }
 .profNwall img:hover{
    cursor: pointer;
+}
+
+@media (max-width:500px) {
+    .profNwall{
+        justify-content: center;
+    }
 }
