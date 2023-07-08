@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import "./Companycard.css"
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const ComapanyCard = (props) => {
 
-
+console.log(props,"ll");
 
   const openbuy = () => {
     if (
@@ -29,79 +30,79 @@ const ComapanyCard = (props) => {
   };
 
 
-const [data,setdata]=useState({company:`${props.company}`,type:props.type,number:"",price:props.price})
+  const [data, setdata] = useState({ company: `${props.company}`,symbol: props.symbol, type: props.type, number: "", price: props.price })
 
-  const Clickhandlersell = async() => {
-     const response = await fetch(`/api/invest/sell`, {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-         authtoken: JSON.stringify(localStorage.getItem("token")),
-       },
-       body: JSON.stringify(data),
-     });
+  const Clickhandlersell = async () => {
+    const response = await fetch(`/api/invest/sell`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authtoken: JSON.stringify(localStorage.getItem("token")),
+      },
+      body: JSON.stringify(data),
+    });
     const json = await response.json();
     toast.success(json.message);
     opensell();
     setdata({
-        company: `${props.company}`,
-        type: props.type,
-        number: 0,
-        price: props.price,
-      }
+      company: `${props.company}`,
+      type: props.type,
+      symbol: props.symbol,
+      number: 0,
+      price: props.price,
+    }
     );
   }
-
-    const Clickhandlerbuy = async () => {
-      console.log(data);
-      const response = await fetch(`/api/invest/buy`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authtoken: JSON.stringify(localStorage.getItem("token")),
-        },
-        body: JSON.stringify(data),
-      });
-      const json = await response.json();
-      toast.success(json.message);
-      openbuy();
-      setdata({
-        company: `${props.company}`,
-        type: props.type,
-        number: 0,
-        price: props.price,
-      });
-    };
+console.log(data);
+  const Clickhandlerbuy = async () => {
+    console.log(data);
+    const response = await fetch(`/api/invest/buy`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authtoken: JSON.stringify(localStorage.getItem("token")),
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await response.json();
+    toast.success(json.message);
+    openbuy();
+    setdata({
+      company: `${props.company}`,
+      type: props.type,
+      symbol: props.symbol,
+      number: 0,
+      price: props.price,
+    });
+  };
 
   const confirmbuy = () => {
-    if (window.confirm("Are You ready for transaction"))
-    {
+    if (window.confirm("Are You ready for transaction")) {
       Clickhandlerbuy();
     }
-}
-
-  const confirmsell = () => {
-    if (window.confirm("Are You ready for transaction"))
-    {
-      Clickhandlersell();
-    }
-}
-
-
-
-
-  const onchange = (e) => {
-    setdata({...data, [e.target.name]: [e.target.value]})
   }
 
-  
+  const confirmsell = () => {
+    if (window.confirm("Are You ready for transaction")) {
+      Clickhandlersell();
+    }
+  }
+
+
+console.log("ss",props.symbol);
+
+  const onchange = (e) => {
+    setdata({ ...data, [e.target.name]: [e.target.value] })
+  }
+
+
 
   return (
     <div className="portList">
       <div className="portCard">
         <div className="portContainer">
           <div className="comName">
-            <h5>{props.company}</h5>
+             <Link to={`/${props.symbol}`}><h5>{props.company}</h5></Link>
             <h6>NET QTY {props.number}</h6>
           </div>
           <div className="ltp">

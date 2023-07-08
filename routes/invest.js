@@ -62,6 +62,7 @@ router.post("/buy", fetchuser, async (req, res) => {
       user: userid,
       company: req.body.company,
       type: req.body.type,
+      symbol: req.body.symbol,
       number: number,
       price: price,
     });

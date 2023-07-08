@@ -39,6 +39,7 @@ nav {
         display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .navitems li {
     margin: 10px;
@@ -112,6 +113,9 @@ nav {
     margin-right: 3%;
     border: 2px solid white;
     border-radius: 12px;
+   width: 85px;
+   height: 40px; 
+   margin: 10px;
 }
 
 #signup a {
@@ -132,6 +136,9 @@ nav {
     margin-right: 3%;
     border: 2px solid white;
     border-radius: 12px;
+    width: 85px;
+   height: 40px; 
+   margin: 10px;
 }
 
 #logout {
@@ -140,6 +147,9 @@ nav {
     margin-right: 3%;
     border: 2px solid white;
     border-radius: 12px;
+    width: 85px;
+   height: 40px; 
+   margin: 10px;
 }
 .first{
     display: flex;
@@ -266,4 +276,8 @@ nav {
         display:none;
     }
     
+}
+
+.searchAndResults{
+    margin: 10px;
 }

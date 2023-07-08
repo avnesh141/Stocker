@@ -119,8 +119,12 @@ function Dashboard() {
                   number={stock.number}
                   price={stock.price}
                   type={stock.type}
+                  symbol={stock.symbol}
                   id={stock._id}
                   key={key}
+                  // ({
+                  //   console.log(stock.symbol);
+                  // })
                 />
                 // )
               );

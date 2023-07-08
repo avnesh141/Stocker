@@ -1,11 +1,11 @@
 
 
-.portList {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    margin: 0 auto;
-    width: 90%;
-}
+/* .portList { */
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+    /* margin: 15px auto; */
+    /* width: 90%; */
+/* } */
 
 .buysell input{
     border:#43bc43 2px solid;
@@ -117,4 +117,7 @@
 
 -webkit-scrollbar {
     display: none;
+}
+.comName a{
+  text-decoration: none;
 }

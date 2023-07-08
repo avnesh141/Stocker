@@ -50,6 +50,19 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+.parallax-cr {
+  background-image: url("./img/cry2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    width: 100%;
+    height: 55vh;
+  }
+  video{
+       width: 100%;
+       aspect-ratio: 40/5;
+  }
 
   .parallax-2 {
     /* The image used */

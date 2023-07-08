@@ -1,9 +1,10 @@
 
 
 .portList {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    margin: 0 auto;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+    margin: 15px auto;
+    /* margin-top: 40px; */
     width: 90%;
 }
 
@@ -72,6 +73,7 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    flex-wrap: wrap;
 }
 
 
@@ -86,13 +88,23 @@
     display: none;
 }
 
-.comName img{
+.portContainer img{
 width: 40px;
 height: 40px;
+margin: 10px;
 }
+.portContainer div{
+margin: 10px;
+}
+.portContainer button{
+margin: 10px;
+}
+
 
 .comName{
     width: 20vw;
+    display: flex;
+    justify-content: space-between;
 }
 .qtyifClickedbuy button {
     color: white;

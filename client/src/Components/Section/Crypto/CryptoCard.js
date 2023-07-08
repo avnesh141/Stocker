@@ -95,11 +95,10 @@ const ComapanyCard = (props) => {
         <div className="portContainer">
           <div
             className="comName"
-            style={{ display: "flex", justifyContent: "space-between" }}
           >
             <h5>{props.name}</h5>
-            <img src={props.imgurl} alt="" />
           </div>
+            <img src={props.imgurl} alt="" />
           <div className="ltp">
             <h6>LTP ₹{props.price}</h6>
             <h6>

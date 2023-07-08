@@ -3,6 +3,7 @@ import './Section.css'
 import Stocks from './Stocks/Stocks'
 import MutualFunds from './MutualFunds/MutualFunds'
 import Crypto from './Crypto/Crypto'
+import vdo from "./img/crypt.mp4"
 function Section() {
 
   const [active, setActive] = useState("0");
@@ -31,7 +32,10 @@ function Section() {
   return (
     <div className='scontainer'>
       
-      <div class="parallax-1"></div>
+      {active==="0" && <div class="parallax-1"></div>}
+      { active==="2" && <div  class="parallax-cr"> 
+      {/* <video src={vdo} autoPlay="true" style={{height:"30vh",width:"100vw"}} /> */}
+      </div>}
       <div className='box'>
       <section className='section-container'>
         

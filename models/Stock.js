@@ -10,6 +10,11 @@ const StockSchema = new Schema({
     requireed: true,
     unique: false,
   },
+  symbol: {
+    type: String,
+    requireed: true,
+    unique: false,
+  },
   type: {
     type: String,
     requireed: true,

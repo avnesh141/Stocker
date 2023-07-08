@@ -1,14 +1,19 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Kanit', sans-serif;
+    font-family: Lobster;
 }
 #footer span {
     color: #328f8a;
     font-weight: 900;
 }
 #Footer {
+    /* color: white; */
     background: #f1f1f1;
+    /* background-image: url("./footerbg2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
     /* padding: 40px 0; */
 }
 
@@ -46,6 +51,7 @@ body {
 
 .right-col h1 {
     font-size: 26px;
+    font:larger
 }
 .right-col{
     display: flex;

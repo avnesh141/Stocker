@@ -11,8 +11,9 @@ function StockPage() {
   const [compData, setCompData] = useState({});
   const navigate = useNavigate();
   setTimeout(() => {
-  // const funcst = () => {
-    setCompData(stocks.find((item) => item.symbol === id));
+    // const funcst = () => {
+      setCompData(stocks.find((item) => item.symbol === id));
+      console.log(compData);
 
     let pcchange = document.getElementById("pc-change");
     let pchange = document.getElementById("p-change");
@@ -36,6 +37,7 @@ function StockPage() {
   const [data, setdata] = useState({
     company: compData.name,
     type: "stock",
+    symbol: compData.symbol,
     number: 0,
     price: compData.price,
   });
@@ -73,6 +75,7 @@ function StockPage() {
     setdata({
       company: compData.name,
       type: "stock",
+      symbol: compData.symbol,
       number: 0,
       price: compData.price,
     });
@@ -95,6 +98,7 @@ function StockPage() {
     setdata({
       company: compData.name,
       type: "stock",
+      symbol: compData.symbol,
       number: 0,
       price: compData.price,
     });
@@ -117,6 +121,7 @@ function StockPage() {
     setdata({
       company: compData.name,
       type: "stock",
+      symbol: compData.symbol,
       number: e.target.value,
       price: compData.price,
     });

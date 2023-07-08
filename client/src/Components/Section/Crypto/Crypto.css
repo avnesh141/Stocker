@@ -1,5 +1,5 @@
 .crypto{
-    margin-top: 6rem;
+    /* margin-top: 40px; */
     display: flexbox;
  flex-direction: row;
  justify-content: space-around;
@@ -8,3 +8,51 @@
     display: inline-block;
     margin: 10px;
 } */
+
+.cryptodiv{
+    overflow-x: hidden
+}
+.mbars{
+    display: flex;
+    /* background-color: aqua; */
+    margin-bottom: 60px;
+}
+
+.mbars:hover .mbar{
+   animation-play-state: paused;
+}
+
+.mbar{
+    border-top: 4px solid rgb(199, 179, 179);
+    border-bottom: 4px solid rgb(199, 179, 179);
+    display: flex;
+    /* overflow-x: scroll; */
+    width: fit-content;
+    transition: ease 5s ;
+    animation: movingitem 12s linear infinite;
+}
+.mbar ul{
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    width: 400px;
+}
+.mbar ul li{
+    margin: 10px;
+}
+.mbar ul img{
+    height: 40px;
+}
+.movingitem{
+    transition: linear;
+    /* transform: translate(10); */
+}
+@keyframes movingitem{
+   from{
+    transform: translateX(0);
+   }
+   to{
+    transform: translateX(-100%);
+   }
+}

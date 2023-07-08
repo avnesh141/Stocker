@@ -210,13 +210,13 @@ const Navbar = () => {
                       About Us
                     </Link>
                   </li>
-                  <li onClick={onclickmenu}>
                     {localStorage.getItem("token") && (
+                  <li onClick={onclickmenu}>
                       <Link className="nav_items" to="/dashboard">
                         DashBoard
                       </Link>
-                    )}
                   </li>
+                    )}
                   <li onClick={onclickmenu}
                   >
                     {!localStorage.getItem("token") && (
@@ -341,6 +341,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-{
-  /* <div>{company.symbol}</div> */
-}
