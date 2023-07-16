@@ -11,7 +11,7 @@ const Crypto = () => {
   const [cryptodata, setdata] = useState([]);
   const fetchdata = async () => {
     let url =
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false";
     const data = await fetch(url);
     const parsedata = await data.json();
     console.log(parsedata);
