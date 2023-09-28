@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login_page.css';
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-
+import jwtDecode from 'jwt-decode';
+// const jwt=require('jwt-decode');
 
 const Login_page = () => {
+
+  /* global google */
+
+const handleCredentialResponse=(cred)=>{
+  const decoded=jwtDecode(cred.credential);
+  console.log(decoded);
+}
+
+
+   
 
 
     const navigate = useNavigate();
@@ -24,7 +35,7 @@ const Login_page = () => {
             },
             body: JSON.stringify(credential),
         });
-        console.log("first");
+    console.log("first");
      const json = await response.json();
      console.log(json);
       if (json.success) {
@@ -38,6 +49,24 @@ const Login_page = () => {
      }
  };
 
+
+ useEffect(() => {
+  
+  google.accounts.id.initialize({
+    client_id: '157819899931-vvlj8bckmcoicv6g05ljhmlmag87nni2.apps.googleusercontent.com',
+    callback: handleCredentialResponse,
+    // login_uri:"http://localhost:3000"
+  });
+  google.accounts.id.prompt();
+   
+  google.accounts.id.renderButton(document.getElementById("signinDiv"), {
+    theme: 'filled_blue',
+    size: 'large',
+  });
+  
+}, []);
+
+   
 
   return (
     <div id="loginbody">
@@ -56,10 +85,11 @@ const Login_page = () => {
               e.preventDefault();
               clickhandler();
             }} >login</button>
+          </form>
+            <div  id='signinDiv' >Sign In</div>
             <p className="message">
               Not registered? <Link to="/signup">Create an account</Link>
             </p>
-          </form>
         </div>
       </div>
     </div>

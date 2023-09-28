@@ -5,6 +5,7 @@ const JWT_SECRET = "ThisisSecretKey";
 const fetchuser = (req, res, next) => {
 
     try {
+        console.log("dd");
         const token = req.header('authtoken');
         const data = jwt.verify(JSON.parse(token), JWT_SECRET);
         req.user = data.user;

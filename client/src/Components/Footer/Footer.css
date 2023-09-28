@@ -3,6 +3,10 @@ body {
     padding: 0;
     font-family: Lobster;
 }
+.footerdiv{
+    margin-top: 12vh;
+}
+
 #footer span {
     color: #328f8a;
     font-weight: 900;

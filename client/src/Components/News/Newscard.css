@@ -1,0 +1,33 @@
+.newscard{
+    display: flex;
+    height: 30vh;
+    background-color: aqua;
+    margin: 15px;
+  flex-direction: row;
+  border-radius: 15px;
+}
+.imgpart img{
+    border-radius: 15px;
+    margin-right: 20px;
+    display: inline-block;
+    width: 30vw;
+    height: 30vh;
+}
+
+.content-part{
+    overflow-x: hidden;
+}
+
+@media  (max-width:500px){
+    .newscard{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .content-part{
+        height: 40vh;
+        padding: 15px;
+    }
+    .imgpart img{
+        width: 100%;
+    }
+}

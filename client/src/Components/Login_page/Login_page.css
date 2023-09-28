@@ -19,6 +19,7 @@
     margin: 10vh auto;
     padding: 5vh;
     width: 90%;
+    align-items: center;
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -51,6 +52,13 @@
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+}
+
+
+#signinDiv{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .form .message {

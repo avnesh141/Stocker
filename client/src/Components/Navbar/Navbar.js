@@ -114,7 +114,7 @@ const Navbar = () => {
     navigate("/stockpage");
   };
   return (
-    <div>
+    <div style={{position:"relative",top:"0",zIndex:"20",height:"10vh"}}>
       <nav className="nav-pc">
         <div className="logoAndOptions">
           <div id="main_logo_andname">
@@ -206,8 +206,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li onClick={onclickmenu}>
-                    <Link className="nav_items" to="/aboutus">
-                      About Us
+                    <Link className="nav_items" to="/news">
+                      News
                     </Link>
                   </li>
                     {localStorage.getItem("token") && (
@@ -265,8 +265,8 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="nav_items" to="/aboutus">
-                    About Us
+                  <Link className="nav_items" to="/news">
+                   News
                   </Link>
                 </li>
                 <li>

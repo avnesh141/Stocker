@@ -43,8 +43,10 @@ function Dashboard() {
       },
     });
     const newuser = await response.json();
+    newuser.date=newuser.date.slice(0,10);
     setuser(newuser);
-    console.log(user);
+    // user.date=user.date.slice(0,8);
+    // console.log( user);
   };
 
   const navigate = useNavigate();
@@ -63,6 +65,14 @@ function Dashboard() {
   return (
     <div className="Dashboard-page">
       <div className="topportContainer">
+      <h2
+          style={{
+            color: "#43bc43",
+          }}
+        >
+          {" "}
+          Hello! {user.name}
+        </h2>
         <div className="profNwall">
           <img
             style={{
@@ -75,6 +85,14 @@ function Dashboard() {
             alt=""
           />
           <div style={{textAlign:"justify"}}>
+          <h6
+            style={{
+              color: "#43bc43",
+              margin: "10px",
+            }}
+          >
+            Account Created On: {user.date}
+          </h6>
           <h4
             style={{
               color: "#43bc43",
@@ -93,14 +111,7 @@ function Dashboard() {
           </h4>
             </div>
         </div>
-        <h2
-          style={{
-            color: "#43bc43",
-          }}
-        >
-          {" "}
-          Hello! {user.name}
-        </h2>
+        
 
         {/* <div>
           <h3>Amount:{user.amount}</h3>

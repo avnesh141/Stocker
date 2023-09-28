@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ComapanyCard = (props) => {
 
-console.log(props,"ll");
+// console.log(props,"ll");
 
   const openbuy = () => {
     if (
@@ -53,9 +53,9 @@ console.log(props,"ll");
     }
     );
   }
-console.log(data);
+// console.log(data);
   const Clickhandlerbuy = async () => {
-    console.log(data);
+    // console.log(data);
     const response = await fetch(`/api/invest/buy`, {
       method: "POST",
       headers: {
@@ -89,7 +89,7 @@ console.log(data);
   }
 
 
-console.log("ss",props.symbol);
+// console.log("ss",props.symbol);
 
   const onchange = (e) => {
     setdata({ ...data, [e.target.name]: [e.target.value] })

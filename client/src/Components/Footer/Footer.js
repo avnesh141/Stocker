@@ -9,7 +9,7 @@ import Linkedin from "./linkedin.png";
 
 function App() {
   return (
-    <div>
+    <div className="footerdiv">
       <footer id="Footer">
         <div className="footer-container">
           <div className="left-col">
@@ -58,9 +58,6 @@ function App() {
             <iframe
               width="100%"
               height="600"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
               style={{ widows: "200px", height: "200px" }}
               src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=DG-2%20IIT%20BHU+(Stocker)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             >

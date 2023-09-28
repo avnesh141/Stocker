@@ -54,14 +54,19 @@ router.post(
   body("email", "Please enter valiid Credentials").isEmail(),
   body("password", "Password must not be empty").isLength({ min: 1 }),
   async (req, res) => {
+    console.log(req);
     const errors = validationResult(req);
+    console.log(errors.array());
     if (!errors.isEmpty()) {
-      return res.status(400).send({ error: errors.array() });
+      console.log("aa Gye");
+      return res.status(400).send({ error: errors });
     }
     let success = false;
     const { password, email } = req.body;
     try {
+      // console.log(user);
       let user = await User.findOne({ email });
+      // res.status(400).send({error:"eee"});
       if (!user) {
         return res.status(400).send({ error: "Enter Valid Credentials" });
       }

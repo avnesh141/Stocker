@@ -13,19 +13,19 @@ export default function Header() {
         <div>
           <h1 className="extraBold font60">Powerful Made Simple</h1>
           <HeaderP className="font13 semiBold">
-          <b>Stocker</b> is a reliable app and highly trustworthy. No one should avoid taking benefit from such a great service! Designed for speed and comfort!
+            <b>Stocker</b> is a reliable app and highly trustworthy. No one should avoid taking benefit from such a great service! Designed for speed and comfort!
           </HeaderP>
           <HeaderP className="font15 semiBold">
-          <b>We simplify investments for you</b>
+            <b>We simplify investments for you</b>
           </HeaderP>
           <BtnWrapper>
-           <Link to="/trade"> <FullButton title="Get Started" /></Link>
+            <Link to="/trade"> <FullButton title="Get Started" /></Link>
           </BtnWrapper>
         </div>
       </LeftSide>
       <RightSide>
         <ImageWrapper>
-          <Img className="radius8" src={HeaderImage} alt="office" style={{zIndex: 0}} />
+          <Img className="radius8" src={HeaderImage} alt="office" style={{ zIndex: 0 }} />
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />
@@ -34,16 +34,12 @@ export default function Header() {
               <p className="font15 whiteColor">
                 <em>“The biggest risk is not taking a risk. In a world that’s changing really quickly, the only strategy that is guaranteed to fail is not taking risks.”</em>
               </p>
-              <p className="font13 orangeColor textRight" style={{marginTop: '10px'}}>-Mark Zuckerberg
+              <p className="font13 orangeColor textRight" style={{ marginTop: '10px' }}>-Mark Zuckerberg
 
-</p>
+              </p>
             </div>
           </QuoteWrapper>
-          {/* <DotsWrapper>
-            <Dots />
-          </DotsWrapper> */}
         </ImageWrapper>
-        <GreyDiv className="lightBg"></GreyDiv>
       </RightSide>
     </Wrapper>
   );
@@ -51,13 +47,12 @@ export default function Header() {
 
 
 const Wrapper = styled.section`
-  padding-top: 80px;
-  margin-top: 15vh;
+  // padding-top: 80px;
   width: 100%;
-  min-height: 840px;
+  // min-height: 840px;
   @media (max-width: 960px) {
     flex-direction: column;
-    margin-top: 18vh;
+    // margin-top: 18vh;
   }
 `;
 const LeftSide = styled.div`

@@ -1,0 +1,13 @@
+.news-component{
+    display: flex;
+    height: fit-content;
+    width: 90vw;
+    background-color: rebeccapurple;
+    margin: auto;
+    padding: 20px;
+    flex-direction: column;
+}
+.maindivnews h1{
+    text-align: center;
+    margin: 20px;
+}

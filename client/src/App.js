@@ -9,12 +9,12 @@ import Navbar from "./Components/Navbar/Navbar";
 
 import Landing from "./Components/Landingpage/Landing"
 import { Helmet } from "react-helmet";
-import AboutUs from "./Components/Aboutus/AboutUs";
 import StockPage from "./Components/Section/Stocks/StockPage";
 import DashBoard from "./Components/DashBoard/DashBoard";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import './App.css'
+import News from "./Components/News/News";
 // import MainDashBoard from "./Components/DashBoard/MainDashBoard";
 // import Messages from "./Components/DashBoard/Messages";
 // import Profile from "./Components/DashBoard/Profile";
@@ -22,26 +22,28 @@ import './App.css'
 
 
 const App = () => {
+
   return (
     <>
-      <ToastContainer />
+       
       <Router>
+      <Navbar />
         <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;800&display=swap" rel="stylesheet" />
       </Helmet>
-        <Navbar />
+      <ToastContainer />
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/trade" element={<Section />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/aboutus" element={<AboutUs />} />
+          <Route exact path="/news" element={<News />} />
           <Route exact path="/stockpage" element={<StockPage />} />
           <Route exact path="/signup" element={<Signup />} />
           {/* <Route exact path="/mdashboard" element={<MainDashBoard />} /> */}
           <Route exact path="/dashboard" element={<DashBoard/>} />
-          <Route exact path="/aboutus" element={<AboutUs />} />
+          {/* <Route exact path="/aboutus" element={<AboutUs />} /> */}
           <Route exact path="/stockpage" element={<StockPage />} />
           {/* <Route exact path="/message" element={<Messages/>}/>
           <Route exact path="/profile" element={<Profile/>}/> */}
