@@ -90,12 +90,38 @@ router.post(
 
 router.get("/getuser", fetchuser, async (req, res) => {
   try {
+    // console.log("first fir Se");
     const userid = req.user.id;
     const user = await User.findById(userid).select("-password");
+    // console.log("qq"+user);
     res.send(user);
   } catch (error) {
     console.log("Good Bye");
+    
+    console.log(error.message);
+    res.status(500).json({ error: "Internal server error occurred" });
+  }
+});
 
+router.post("/signg", fetchuser, async (req, res) => {
+  console.log("aa to gye");
+  // res.setHeader('Cross-Origin-Opener-Policy','same-origin');
+  try {
+    const email = req.user.email;
+    let user = await User.findOne({email});
+    console.log("user");
+   if(user == null)
+   {
+      user=await User.create({
+        name:req.user.name,
+        email:req.user.email,
+        picture:req.user.picture,
+      });
+   }
+   let success=true;
+   res.status(200).send({success});
+  } catch (error) {
+    console.log("Good Bye");
     console.log(error.message);
     res.status(500).json({ error: "Internal server error occurred" });
   }
@@ -151,5 +177,36 @@ router.put("/withdraw", fetchuser,async (req, res) => {
         res.send({ error: error.message });
     }
 })
+
+
+router.put("/updatepwd", fetchuser,async (req, res) => {
+    try {
+        const userid = req.user.id;
+        // let user = await User.findById(userid);
+        const password = req.body.password;
+        const salt = await bcrypt.genSalt(10);
+        const secPass = bcrypt.hashSync(password, salt);
+        // user.password=secPass;
+        console.log(password);
+        let user=await User.findById(userid);
+        if(user.password)
+        {
+          user=await User.findByIdAndUpdate(userid, {password:secPass});
+        }
+        else
+        {
+          user=await User.findByIdAndUpdate(userid,{new:true}, {password:secPass});
+        }
+        console.log(secPass);
+        console.log(user);
+        res.status(200).send(user);
+
+    } catch (error) {
+        res.send({ error: error.message });
+    }
+})
+
+
+
 
 module.exports = router;

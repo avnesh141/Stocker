@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
 var cors = require('cors');
 app.use(cors());
 
+// const helmet=require('helmet');
+
+// app.use(helmet({
+//   contentSecurityPolicy:false,
+// }))
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
@@ -32,6 +37,11 @@ connectTomongo();
 
 // app.get('/', (req, res) => {
 //     res.send("Hello world");
+// });
+// app.use((req,res,next)=>{
+//   res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+//   res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+//   next();
 // });
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/invest', require('./routes/invest'));

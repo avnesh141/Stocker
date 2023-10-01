@@ -26,6 +26,10 @@ const UserSchema = new Schema({
   amount: {
     type: Number,
     default:1000000,
+  },
+  picture:{
+    type:String,
+    default:"https://img.freepik.com/free-psd/3d-icon-social-media-app_23-2150049569.jpg?w=740&t=st=1696077818~exp=1696078418~hmac=485f46cbe800d22ce26e0fef07fd93a343bcce09ba1419555c1e46ec3e40eacf",
   }
 });
 const User = mongoose.model("user", UserSchema);

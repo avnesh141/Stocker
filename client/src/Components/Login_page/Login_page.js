@@ -3,22 +3,33 @@ import './Login_page.css';
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
-// const jwt=require('jwt-decode');
 
 const Login_page = () => {
 
+  const navigate = useNavigate();
   /* global google */
-
-const handleCredentialResponse=(cred)=>{
+const handleCredentialResponse= async(cred)=>{
   const decoded=jwtDecode(cred.credential);
   console.log(decoded);
+  const token=cred.credential;
+   localStorage.setItem("token", token);
+
+   const response = await fetch(`/api/auth/signg`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      authtoken: JSON.stringify(localStorage.getItem("token")),
+    },
+  });
+  console.log(response);
+   setTimeout(() => {
+    navigate("/trade");
+   }, 1000);
+   toast.success("Logged in successfully");
 }
 
 
-   
 
-
-    const navigate = useNavigate();
  const [credential, setcredential] = useState({
    email: "",
    password: "",
@@ -27,7 +38,7 @@ const handleCredentialResponse=(cred)=>{
    setcredential({ ...credential, [e.target.name]: e.target.value });
  };
     const clickhandler = async () => {
-        console.log("first");
+        // console.log("first");
         const response = await fetch(`/api/auth/login`, {
             method: "POST",
             headers: {
@@ -35,11 +46,12 @@ const handleCredentialResponse=(cred)=>{
             },
             body: JSON.stringify(credential),
         });
-    console.log("first");
+    // console.log("first");
      const json = await response.json();
-     console.log(json);
+    //  console.log(json);
       if (json.success) {
         toast.success("Logged in successfully");
+        // console.log(typeof json.authtoken);
      localStorage.setItem("token", json.authtoken);
      navigate("/trade");
       }
@@ -54,10 +66,11 @@ const handleCredentialResponse=(cred)=>{
   
   google.accounts.id.initialize({
     client_id: '157819899931-vvlj8bckmcoicv6g05ljhmlmag87nni2.apps.googleusercontent.com',
+    login_uri:"https://localhost:5000/api/auth/signg",
+    use_fedcm_for_prompt:true,
     callback: handleCredentialResponse,
-    // login_uri:"http://localhost:3000"
   });
-  google.accounts.id.prompt();
+  // google.accounts.id.prompt();
    
   google.accounts.id.renderButton(document.getElementById("signinDiv"), {
     theme: 'filled_blue',

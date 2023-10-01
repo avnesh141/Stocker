@@ -3,7 +3,12 @@
     margin: 0;
 }
 
+.maindivNav{
+    height: 12vh;
+}
+
 nav {
+    top: 0;
     position: fixed;
     display: flex;
     z-index: 50;

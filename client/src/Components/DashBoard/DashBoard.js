@@ -45,8 +45,9 @@ function Dashboard() {
     const newuser = await response.json();
     newuser.date=newuser.date.slice(0,10);
     setuser(newuser);
+    console.log(newuser);
     // user.date=user.date.slice(0,8);
-    // console.log( user);
+  
   };
 
   const navigate = useNavigate();
@@ -60,6 +61,7 @@ function Dashboard() {
   useEffect(() => {
     boughtfunc();
     funcuser();
+    console.log(user);
   },[]);
 
   return (
@@ -81,7 +83,7 @@ function Dashboard() {
               borderRadius: "50px",
               backgroundPosition: "center",
             }}
-            src={photo}
+            src={user.picture}
             alt=""
           />
           <div style={{textAlign:"justify"}}>

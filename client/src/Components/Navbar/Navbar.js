@@ -114,7 +114,7 @@ const Navbar = () => {
     navigate("/stockpage");
   };
   return (
-    <div style={{position:"relative",top:"0",zIndex:"20",height:"10vh"}}>
+    <div className="maindivNav" >
       <nav className="nav-pc">
         <div className="logoAndOptions">
           <div id="main_logo_andname">
