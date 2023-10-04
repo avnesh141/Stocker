@@ -16,7 +16,7 @@
     z-index: 1;
     background: #FFFFFF;
     max-width: 500px;
-    margin: 10vh auto;
+    margin: 0 auto;
     padding: 5vh;
     width: 90%;
     align-items: center;
@@ -85,5 +85,5 @@
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100vh;
+    height: 90vh;
 }

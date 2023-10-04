@@ -1,6 +1,6 @@
 #signupbody {
 	margin: 0;
-	padding-bottom: 30vh;
+	padding-bottom: 15vh;
 	font-family: Arial, sans-serif;
 	background-color: #328f8a;
     background-image: linear-gradient(45deg, #328f8a, #08ac4b);
@@ -9,7 +9,7 @@
 .signup-container {
 	max-width: 600px;
 	position: relative;
-	top: 20vh;
+	top: 5vh;
 	margin:auto;
 	padding: 10px;
 	border-radius: 25px;
