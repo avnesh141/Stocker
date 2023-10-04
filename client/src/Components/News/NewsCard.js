@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Newscard.css"
 
 function NewsCard(props) {
@@ -7,15 +7,21 @@ function NewsCard(props) {
     let str2=[str.slice(0,4),str.slice(4,2),str.slice(6,2)];
     return str.slice(6,8)+"/"+str.slice(4,6)+"/"+str.slice(0,4);
   }
+
+  const titleFunc=(title)=>{
+     let arr=title.split(" ");
+     return arr.slice(0,10).join(" ");
+  }
+
   return (
     <div className='newscard'>
         <div className='imgpart'>
         <img src={props.imgurl?props.imgurl:"https://www.benzinga.com/next-assets/images/schema-image-default.png"} alt="" />
         </div>
         <div className='content-part'>
-           <h5 className='title'>{props.title}</h5>
+           <h5 className='title'>{titleFunc(props.title)}</h5>
            <p>
-            {props.description}
+            {props.description.slice(0,100)}
             <a href={props.readmore} target='_blank'>Read more</a>
            </p>
            <div>

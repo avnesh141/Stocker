@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ComapanyCard from "./ComapanyCard";
 import "./Dashboard.css";
-import photo from "./photo.jpg"
-import {useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [boughtst, setboughtst] = useState([]);
@@ -46,6 +45,8 @@ function Dashboard() {
     newuser.date=newuser.date.slice(0,10);
     setuser(newuser);
     console.log(newuser);
+    localStorage.setItem("user",JSON.stringify(newuser));
+
     // user.date=user.date.slice(0,8);
   
   };
@@ -55,6 +56,20 @@ function Dashboard() {
     navigate("/wallet");
 }
 
+const onclickimg=()=>{
+  // console.log("clicked img");
+  let ch=document.getElementById('dropdown').style.display;
+  // console.log(ch=="");
+  if(ch=='none' || ch=="")
+  {
+    document.getElementById('dropdown').style.display='block';
+  }
+  else
+  {
+    // console.log("clicked im2");
+    document.getElementById('dropdown').style.display='none';
+  }
+}
 
 
 
@@ -76,7 +91,9 @@ function Dashboard() {
           Hello! {user.name}
         </h2>
         <div className="profNwall">
+          <div className="transact">
           <img
+          onClick={onclickimg}
             style={{
               width: "50px",
               height: "50px",
@@ -85,7 +102,15 @@ function Dashboard() {
             }}
             src={user.picture}
             alt=""
-          />
+            />
+            <div  id="dropdown">
+              <div className="up-arrow"></div>
+              <div className="drop-entity">{user.name}</div>
+              <Link className="drop-entity"  to='/updateuser'>Update user</Link>
+            </div>
+            <button className="withdraw">Withdraw</button>
+            <button className="withdraw">Deposit</button>
+            </div>
           <div style={{textAlign:"justify"}}>
           <h6
             style={{

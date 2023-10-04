@@ -39,6 +39,12 @@ const handleCredentialResponse= async(cred)=>{
  };
     const clickhandler = async () => {
         // console.log("first");
+        if(credential.password.length<5)
+        {
+          toast.error("Invalid password");
+          return;
+        }
+        toast.success("Wait Your Request is processing")
         const response = await fetch(`/api/auth/login`, {
             method: "POST",
             headers: {

@@ -52,7 +52,7 @@ router.post(
 router.post(
   "/login",
   body("email", "Please enter valiid Credentials").isEmail(),
-  body("password", "Password must not be empty").isLength({ min: 1 }),
+  body("password", "Password must not be empty").isLength({ min: 5 }),
   async (req, res) => {
     console.log(req);
     const errors = validationResult(req);
@@ -179,30 +179,23 @@ router.put("/withdraw", fetchuser,async (req, res) => {
 })
 
 
-router.put("/updatepwd", fetchuser,async (req, res) => {
+router.put("/update", fetchuser,async (req, res) => {
+  let success=false;
     try {
         const userid = req.user.id;
-        // let user = await User.findById(userid);
         const password = req.body.password;
+        const newname = req.body.name;
+        const newnumber=req.body.number;
         const salt = await bcrypt.genSalt(10);
         const secPass = bcrypt.hashSync(password, salt);
-        // user.password=secPass;
-        console.log(password);
-        let user=await User.findById(userid);
-        if(user.password)
-        {
-          user=await User.findByIdAndUpdate(userid, {password:secPass});
-        }
-        else
-        {
-          user=await User.findByIdAndUpdate(userid,{new:true}, {password:secPass});
-        }
-        console.log(secPass);
-        console.log(user);
-        res.status(200).send(user);
+         let user=await User.findByIdAndUpdate(userid, {name:newname,password:secPass,number:newnumber});
+        // console.log(secPass);
+        // console.log(user);
+        success=true;
+        res.status(200).send({success,user});
 
     } catch (error) {
-        res.send({ error: error.message });
+        res.send({ success,error });
     }
 })
 
