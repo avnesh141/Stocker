@@ -4,13 +4,14 @@ const JWT_SECRET = "ThisisSecretKey";
 
 const fetchuser =async (req, res, next) => {
     console.log("jaoge kaise");
+    let success=false;
     try {
         let token = req.header('authtoken');
         let data=jwt.decode(JSON.parse(token));
         console.log(data.email);
-        // console.log(data);
+        console.log(data);
         console.log(req.body);
-        if(data.email == null)
+        if(data.email == undefined)
         {
             req.user = data.user;
         }
@@ -38,12 +39,12 @@ const fetchuser =async (req, res, next) => {
         next();
         if (!token)
         {
-            return res.status(401).send({ error: "Authentication denied" });
+            return res.status(401).send({ success, error: "Authentication denied" });
         }
 
     } catch (error) {
         console.log("error");
-        res.status(500).send({ error: error.message });
+        res.status(500).send({ error,success});
     }
 }
 

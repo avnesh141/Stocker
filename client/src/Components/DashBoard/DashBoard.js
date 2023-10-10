@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ComapanyCard from "./ComapanyCard";
 import "./Dashboard.css";
-import {Link, useNavigate } from "react-router-dom";
+import {Link, json, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Dashboard() {
   const [boughtst, setboughtst] = useState([]);
@@ -46,7 +47,10 @@ function Dashboard() {
     setuser(newuser);
     console.log(newuser);
     localStorage.setItem("user",JSON.stringify(newuser));
-
+    if(!json.success)
+    {
+      toast.error(json.error);
+    }
     // user.date=user.date.slice(0,8);
   
   };

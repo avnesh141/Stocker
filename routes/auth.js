@@ -54,7 +54,7 @@ router.post(
   body("email", "Please enter valiid Credentials").isEmail(),
   body("password", "Password must not be empty").isLength({ min: 5 }),
   async (req, res) => {
-    console.log(req);
+    // console.log(req);
     const errors = validationResult(req);
     console.log(errors.array());
     if (!errors.isEmpty()) {
@@ -89,6 +89,7 @@ router.post(
 );
 
 router.get("/getuser", fetchuser, async (req, res) => {
+  let success=false;
   try {
     // console.log("first fir Se");
     const userid = req.user.id;
@@ -99,31 +100,28 @@ router.get("/getuser", fetchuser, async (req, res) => {
     console.log("Good Bye");
     
     console.log(error.message);
-    res.status(500).json({ error: "Internal server error occurred" });
+    res.status(500).send({error: "Unable to fetch user Details" });
   }
 });
 
 router.post("/signg", fetchuser, async (req, res) => {
   console.log("aa to gye");
-  // res.setHeader('Cross-Origin-Opener-Policy','same-origin');
+  let success=false;
   try {
     const email = req.user.email;
-    let user = await User.findOne({email});
-    console.log("user");
-   if(user == null)
+   if(email != undefined)
    {
-      user=await User.create({
+      let user=await User.create({
         name:req.user.name,
         email:req.user.email,
         picture:req.user.picture,
       });
    }
-   let success=true;
+   success=true;
    res.status(200).send({success});
   } catch (error) {
     console.log("Good Bye");
-    console.log(error.message);
-    res.status(500).json({ error: "Internal server error occurred" });
+    res.status(500).send({ "error":error.message,"success":success });
   }
 });
 

@@ -59,7 +59,7 @@ const Signup = () => {
     console.log(decoded);
     const token=cred.credential;
      localStorage.setItem("token", token);
-  
+     
      const response = await fetch(`/api/auth/signg`, {
       method: "POST",
       headers: {
@@ -67,11 +67,19 @@ const Signup = () => {
         authtoken: JSON.stringify(localStorage.getItem("token")),
       },
     });
+    const json=await response.json();
     console.log(response);
      setTimeout(() => {
       navigate("/trade");
      }, 1000);
-     toast.success("Logged in successfully");
+     if(json.success)
+     {
+       toast.success("Registered successfully");
+      }
+      else
+      {
+        toast.error(json.error);
+      }
   }
   
 

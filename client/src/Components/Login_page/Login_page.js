@@ -13,7 +13,6 @@ const handleCredentialResponse= async(cred)=>{
   console.log(decoded);
   const token=cred.credential;
    localStorage.setItem("token", token);
-
    const response = await fetch(`/api/auth/signg`, {
     method: "POST",
     headers: {
@@ -21,11 +20,19 @@ const handleCredentialResponse= async(cred)=>{
       authtoken: JSON.stringify(localStorage.getItem("token")),
     },
   });
-  console.log(response);
-   setTimeout(() => {
-    navigate("/trade");
-   }, 1000);
-   toast.success("Logged in successfully");
+  const json=await response.json();
+  if(json.success)
+  {
+    console.log(response);
+    setTimeout(() => {
+      navigate("/trade");
+    }, 1000);
+    toast.success("Logged in successfully");
+  }
+  else
+  {
+    toast.error(json.error);
+  }
 }
 
 
