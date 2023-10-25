@@ -192,9 +192,9 @@ const onmouseover=()=>{
       </div>
       <div className="Transactions">
            <h1>Your Recent Transactions</h1>
-           <div className="transactionTable">
             <Transaction/>
-           </div>
+           {/* <div className="transactionTable">
+           </div> */}
       </div>
     </div>
   );

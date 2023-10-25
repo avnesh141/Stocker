@@ -35,7 +35,11 @@ const clickhandler= async()=>{
         body:JSON.stringify(credential)
       });
     const json=await response.json();
+    // localStorage.removeItem("user");
     if (json.success) {
+      user.name=credential.name;
+      user.number=credential.number;
+      localStorage.setItem("user",JSON.stringify(user));
         toast.success("Updated in successfully");
        navigate("/profile");
       }

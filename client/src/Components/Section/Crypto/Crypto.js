@@ -17,7 +17,7 @@ const Crypto = () => {
     // console.log(parsedata);
     setdata(parsedata.slice(0, 20));
     // console.log(cryptodata);
-    const ndata=cryptodata.slice(0,6);
+    const ndata=parsedata.slice(0,6);
     // console.log(ndata);
     setMbarData(ndata);
   };

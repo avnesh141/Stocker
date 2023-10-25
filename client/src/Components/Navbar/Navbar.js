@@ -9,6 +9,7 @@ const Navbar = () => {
   const onclick = () => {
     console.log("clicke");
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate("/login");
   };
   const [width, setWidth] = useState(window.innerWidth);

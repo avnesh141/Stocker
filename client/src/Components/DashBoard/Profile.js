@@ -14,6 +14,10 @@ function Profile() {
             <div>{user.name}</div>
           </div>
           <div className='entity-row'>
+            <div>Name</div>
+            <div>{user.email}</div>
+          </div>
+          <div className='entity-row'>
             <div>Phone</div>
             <div>{user.number}</div>
           </div>
@@ -35,7 +39,7 @@ function Profile() {
           </div>
           <div className='entity-row'>
             <div>WithDrawable Amount</div>
-            <div>₹ {user.amount-5000>0?user.amount:0}</div>
+            <div>₹ {user.amount-5000>0?user.amount-5000:0}</div>
           </div>
         </div>
         <div className='update-button'>

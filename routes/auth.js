@@ -186,7 +186,15 @@ router.put("/update", fetchuser,async (req, res) => {
         const newnumber=req.body.number;
         const salt = await bcrypt.genSalt(10);
         const secPass = bcrypt.hashSync(password, salt);
-         let user=await User.findByIdAndUpdate(userid, {name:newname,password:secPass,number:newnumber});
+        let user;
+        if(password=="")
+        {
+           user=await User.findByIdAndUpdate(userid, {name:newname,number:newnumber});
+        }
+        else
+        {
+          user=await User.findByIdAndUpdate(userid, {name:newname,password:secPass,number:newnumber});
+        }
         // console.log(secPass);
         // console.log(user);
         success=true;

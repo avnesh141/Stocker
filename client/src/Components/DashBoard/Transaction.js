@@ -31,7 +31,7 @@ useEffect(() => {
 
   return (
     <div className='Transactionslist'>
-      {transact.map((item,index)=>{
+      {transact!=null &&  transact.map((item,index)=>{
         return (
           <TransactionCard name={item.company} type={item.type} date={item.date} id={item.t_id} amount={item.price*item.number}/>
         );
