@@ -19,7 +19,7 @@ nav {
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0, 0.06);
     font-family: 'Kanit', sans-serif;
-    width: 100vw;
+    width: 100%;
     height: 12vh;
 }
 #navlist_small{

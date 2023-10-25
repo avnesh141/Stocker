@@ -1,0 +1,74 @@
+.mainProfile{
+    padding-bottom: 20px;
+    /* background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+.mainProfile h1{
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.mainProfile img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.entity-row{
+    background-color:rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    width:100%;
+    display: flex;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 2px;
+    justify-content: space-between;
+}
+.entity-row:hover{
+    color: black;
+   background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.profileDetails{
+    /* display: inline; */
+    color: white;
+    border: solid 5px;
+    border-radius: 25px;
+    padding: 10px;
+   max-width: 600px;
+   margin: auto;
+   /* background-color: #08ac4b; */
+}
+
+.update-button{
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+    margin: auto;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Kanit', sans-serif;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+}
+
+.update-button a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+

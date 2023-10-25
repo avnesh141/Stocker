@@ -58,7 +58,7 @@ router.post(
     const errors = validationResult(req);
     console.log(errors.array());
     if (!errors.isEmpty()) {
-      console.log("aa Gye");
+      // console.log("aa Gye");
       return res.status(400).send({ error: errors });
     }
     let success = false;
@@ -97,15 +97,15 @@ router.get("/getuser", fetchuser, async (req, res) => {
     // console.log("qq"+user);
     res.send(user);
   } catch (error) {
-    console.log("Good Bye");
+    // console.log("Good Bye");
     
-    console.log(error.message);
+    // console.log(error.message);
     res.status(500).send({error: "Unable to fetch user Details" });
   }
 });
 
 router.post("/signg", fetchuser, async (req, res) => {
-  console.log("aa to gye");
+  // console.log("aa to gye");
   let success=false;
   try {
     const email = req.user.email;
@@ -120,7 +120,7 @@ router.post("/signg", fetchuser, async (req, res) => {
    success=true;
    res.status(200).send({success});
   } catch (error) {
-    console.log("Good Bye");
+    // console.log("Good Bye");
     res.status(500).send({ "error":error.message,"success":success });
   }
 });
@@ -154,8 +154,8 @@ router.put("/withdraw", fetchuser,async (req, res) => {
         if (user)
         {
             const amount = parseFloat(req.body.amount);
-            console.log(typeof amount);
-            console.log(user.amount);
+            // console.log(typeof amount);
+            // console.log(user.amount);
             if ((amount > user.amount) || user.amount===0)
             {
                 return res.status(400).send({ error: "You can not withdraw more than Your current balance or account is empty" });

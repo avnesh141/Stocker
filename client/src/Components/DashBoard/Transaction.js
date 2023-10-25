@@ -1,85 +1,43 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-// import "./Signup.css";
+import React, { useEffect, useState } from 'react'
+import TransactionCard from './TransactionCard';
+import "./TransactionCard.css"
+function Transaction() {
+console.log("mounted");
+const [transact,setTransact]=useState([]);
 
-const Transaction = () => {
-  const navigate = useNavigate();
-  const [cpass, spass] = useState(null);
-const user=JSON.parse(localStorage.getItem("user"));
-
-  const [credential, setcredential] = useState({
-    name: user.name,
-    number: user.number,
-    email: user.email,
-    password: "",
-  });
-  const onchangecnf = (e) => {
-    let pass = e.target.value;
-    spass(pass);
-  };
-  const onchange = (e) => {
-    setcredential({ ...credential, [e.target.name]: e.target.value });
-  };
-
-  
-
-const clickhandler= async()=>{
-    toast.success("Wait Your Request is processing")
-    const response = await fetch(`/api/auth/update`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          authtoken: JSON.stringify(localStorage.getItem("token")),
-        },
-        body:JSON.stringify(credential)
-      });
-    const json=await response.json();
-    if (json.success) {
-        toast.success("Updated in successfully");
-       navigate("/dashboard");
-      }
-      else
-      {
-     toast.error(json.error)
-     }
+const GetTransact=async()=>{
+  console.log("inside GEt");
+  const response =await fetch("/api/invest/transactions",
+  {
+    method:"GET",
+    headers: {
+      "Content-Type": "application/json",
+      authtoken: JSON.stringify(localStorage.getItem("token")),
+    },
+  })
+  // console.log(response);
+  const json =await response.json();
+  setTransact( Object.values(json)[0]);
+  // const data= Object.values(json);
+  // console.log(data);
+  // console.log( Object.values(json)[0]);
 }
+
+useEffect(() => {
+  GetTransact();
+  // console.log(transact);
+}, [])
 
 
   return (
-    <div id="signupbody">
-      <div className="signup-container">
-        <form>
-          <label htmlFor="number">Phone:</label>
-          <input
-            type="number"
-            id="number"
-            name="number"
-            value={credential.number}
-            required
-            // placeholder="7895XXXXXX"
-            onChange={onchange}
-          />
-          <label htmlFor="password">New Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            placeholder="******"
-            onChange={onchange}
-          />
-          <input
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              clickhandler();
-            }}
-            value="Update"
-          />
-        </form>
-      </div>
+    <div className='Transactionslist'>
+      {transact.map((item,index)=>{
+        return (
+          <TransactionCard name={item.company} type={item.type} date={item.date} id={item.t_id} amount={item.price*item.number}/>
+        );
+      })}
     </div>
-  );
-};
-export default Transaction;
+  )
+}
+
+export default Transaction

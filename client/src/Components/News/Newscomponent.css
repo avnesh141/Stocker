@@ -6,8 +6,14 @@
     margin: auto;
     padding: 20px;
     flex-direction: column;
+    padding: 10px;
 }
 .maindivnews h1{
     text-align: center;
     margin: 20px;
+    color: white;
+}
+
+.content-part{
+    padding: 10px;
 }

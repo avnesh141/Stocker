@@ -1,7 +1,8 @@
 .newscard{
     display: flex;
     height: 30vh;
-    background-color: aqua;
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     margin: 15px;
   flex-direction: row;
   border-radius: 15px;

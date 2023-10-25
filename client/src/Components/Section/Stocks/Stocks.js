@@ -37,9 +37,9 @@ function Stocks() {
                   NIFTY50
                 </h5>
                 <div className="pricesbox">
-                  <div className="prices">16969</div>
+                  <div className="prices">₹ 16969</div>
                   <div className="changes" style={{ color: "red" }}>
-                    +40.59
+                    +40.59 %
                   </div>
                 </div>
               </div>
@@ -57,9 +57,9 @@ function Stocks() {
                   SENSEX
                 </h5>
                 <div className="pricesbox">
-                  <div className="prices">856565</div>
+                  <div className="prices">₹ 856565</div>
                   <div className="changes" style={{ color: "red" }}>
-                    +50.2
+                    +50.2 %
                   </div>
                 </div>
               </div>
@@ -75,9 +75,9 @@ function Stocks() {
               <div className="indexDetails">
                 <h5 className="indexHead">BANKNIFTY</h5>
                 <div className="pricesbox">
-                  <div className="prices">87756</div>
+                  <div className="prices">₹ 87756</div>
                   <div className="changes" style={{ color: "red" }}>
-                    -53.2
+                    -53.2 %
                   </div>
                 </div>
               </div>
@@ -106,8 +106,8 @@ function Stocks() {
                         {stock.name}
                       </Link>
                     </h5>
-                    <h5 className="compPrice">{stock.price}</h5>
-                    <h6 className="compChange">{stock.change}</h6>
+                    <h5 className="compPrice">₹ {stock.price}</h5>
+                    <h6 className="compChange">{stock.change} %</h6>
                   </div>
                 </div>
               </div>
@@ -138,8 +138,8 @@ function Stocks() {
                         {stock.name}
                       </Link>
                     </h5>
-                    <h5 className="compPrice">{stock.price}</h5>
-                    <h6 className="compChange">{stock.changep}</h6>
+                    <h5 className="compPrice">₹ {stock.price}</h5>
+                    <h6 className="compChange">{stock.changep} %</h6>
                   </div>
                 </div>
               </div>
@@ -167,8 +167,8 @@ function Stocks() {
                         {stock.name}
                       </Link>
                     </h5>
-                    <h5 className="compPrice">{stock.price}</h5>
-                    <h6 className="compChange">{stock.changep}</h6>
+                    <h5 className="compPrice">₹ {stock.price}</h5>
+                    <h6 className="compChange">{stock.changep} %</h6>
                   </div>
                 </div>
               </div>

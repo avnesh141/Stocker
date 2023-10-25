@@ -3,6 +3,7 @@ import ComapanyCard from "./ComapanyCard";
 import "./Dashboard.css";
 import {Link, json, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Transaction from "./Transaction";
 
 function Dashboard() {
   const [boughtst, setboughtst] = useState([]);
@@ -35,6 +36,12 @@ function Dashboard() {
 
   const [user, setuser] = useState({});
   const funcuser = async () => {
+    const currUser=localStorage.getItem("user");
+      if(currUser != undefined)
+    {
+      setuser(JSON.parse(currUser))
+      return;
+    }
     const response = await fetch(`/api/auth/getuser`, {
       method: "GET",
       headers: {
@@ -45,14 +52,13 @@ function Dashboard() {
     const newuser = await response.json();
     newuser.date=newuser.date.slice(0,10);
     setuser(newuser);
-    console.log(newuser);
+    // console.log(newuser);
     localStorage.setItem("user",JSON.stringify(newuser));
     if(!json.success)
     {
       toast.error(json.error);
     }
     // user.date=user.date.slice(0,8);
-  
   };
 
   const navigate = useNavigate();
@@ -60,19 +66,11 @@ function Dashboard() {
     navigate("/wallet");
 }
 
-const onclickimg=()=>{
-  // console.log("clicked img");
-  let ch=document.getElementById('dropdown').style.display;
-  // console.log(ch=="");
-  if(ch=='none' || ch=="")
-  {
-    document.getElementById('dropdown').style.display='block';
+const onmouseover=()=>{
+    document.getElementById('dropdown').style.display="block";
   }
-  else
-  {
-    // console.log("clicked im2");
-    document.getElementById('dropdown').style.display='none';
-  }
+  const onmouseleave=()=>{
+    document.getElementById('dropdown').style.display="none";
 }
 
 
@@ -95,9 +93,10 @@ const onclickimg=()=>{
           Hello! {user.name}
         </h2>
         <div className="profNwall">
-          <div className="transact">
+          {/* <div className="transact"> */}
           <img
-          onClick={onclickimg}
+          onMouseOver={onmouseover}
+          onMouseLeave={onmouseleave}
             style={{
               width: "50px",
               height: "50px",
@@ -107,23 +106,17 @@ const onclickimg=()=>{
             src={user.picture}
             alt=""
             />
-            <div  id="dropdown">
-              <div className="up-arrow"></div>
-              <div className="drop-entity">{user.name}</div>
-              <Link className="drop-entity"  to='/updateuser'>Update user</Link>
-            </div>
-            <button className="withdraw">Withdraw</button>
-            <button className="withdraw">Deposit</button>
-            </div>
+          <div  id="dropdown"
+             onMouseOver={onmouseover}
+             onMouseLeave={onmouseleave}>
+            <div className="up-arrow"></div>
+            <div className="drop-entity"><Link to="/profile">Go To Profile</Link></div>
+            
+          </div>
+            {/* <button className="withdraw">Withdraw</button>
+            <button className="withdraw">Deposit</button> */}
+            {/* </div> */}
           <div style={{textAlign:"justify"}}>
-          <h6
-            style={{
-              color: "#43bc43",
-              margin: "10px",
-            }}
-          >
-            Account Created On: {user.date}
-          </h6>
           <h4
             style={{
               color: "#43bc43",
@@ -186,6 +179,7 @@ const onclickimg=()=>{
                   number={stock.number}
                   price={stock.price}
                   type={stock.type}
+                  symbol={stock.symbol}
                   id={stock._id}
                   key={key}
                 />
@@ -195,6 +189,12 @@ const onclickimg=()=>{
             <h4>Your bought-Crypto Come Here</h4>
           )}
         </div>
+      </div>
+      <div className="Transactions">
+           <h1>Your Recent Transactions</h1>
+           <div className="transactionTable">
+            <Transaction/>
+           </div>
       </div>
     </div>
   );

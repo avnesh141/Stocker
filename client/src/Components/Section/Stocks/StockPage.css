@@ -1,9 +1,17 @@
 .stock-page-container{
     width: 80vw;
-    margin-top: 150px;
-    margin: 150px auto 0px auto;
-    display: flex;
+    /* margin-top: 150px; */
+    margin: 50px auto 0px auto;
+    /* display: flex; */
     justify-content: center;
+}
+
+.headStockPage{
+    display: block;
+    /* margin: auto; */
+    font-weight: bold;
+    margin-top: 50px;
+    text-align: center;
 }
 
 .buyselldiv{

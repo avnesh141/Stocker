@@ -3,14 +3,14 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = "ThisisSecretKey";
 
 const fetchuser =async (req, res, next) => {
-    console.log("jaoge kaise");
+    // console.log("jaoge kaise");
     let success=false;
     try {
         let token = req.header('authtoken');
         let data=jwt.decode(JSON.parse(token));
-        console.log(data.email);
-        console.log(data);
-        console.log(req.body);
+        // console.log(data.email);
+        // console.log(data);
+        // console.log(req.body);
         if(data.email == undefined)
         {
             req.user = data.user;
@@ -20,7 +20,7 @@ const fetchuser =async (req, res, next) => {
             const email=data.email;
             // console.log(data);
             let user=await User.findOne({email});
-            console.log(user);
+            // console.log(user);
             if(user != null )
             {
                 const finUser={
@@ -32,7 +32,7 @@ const fetchuser =async (req, res, next) => {
             }
             else
             {
-                console.log("sdjdj");
+                // console.log("sdjdj");
                 req.user=data;
             }
         }
@@ -43,7 +43,7 @@ const fetchuser =async (req, res, next) => {
         }
 
     } catch (error) {
-        console.log("error");
+        // console.log("error");
         res.status(500).send({ error,success});
     }
 }

@@ -16,10 +16,8 @@ import { ToastContainer } from "react-toastify";
 import './App.css'
 import News from "./Components/News/News";
 import UpdateUser from "./Components/DashBoard/UpdateUser";
-// import MainDashBoard from "./Components/DashBoard/MainDashBoard";
-// import Messages from "./Components/DashBoard/Messages";
-// import Profile from "./Components/DashBoard/Profile";
-
+import CryptoPage from "./Components/Section/Crypto/CryptoPage";
+import Profile from "./Components/DashBoard/Profile";
 
 
 const App = () => {
@@ -46,9 +44,10 @@ const App = () => {
           <Route exact path="/dashboard" element={<DashBoard/>} />
           {/* <Route exact path="/aboutus" element={<AboutUs />} /> */}
           <Route exact path="/stockpage" element={<StockPage />} />
-          {/* <Route exact path="/message" element={<Messages/>}/>
-          <Route exact path="/profile" element={<Profile/>}/> */}
+          {/* <Route exact path="/message" element={<Messages/>}/> */}
+          <Route exact path="/profile" element={<Profile/>}/>
           <Route exact path="/:id" element={<StockPage />}/>
+          <Route exact path="/cryptoPage/:id" element={<CryptoPage />}/>
           <Route exact path="/updateuser" element={<UpdateUser/>} />
           <Route exact path="*" element={<Navigate to="/" />} />
         </Routes>

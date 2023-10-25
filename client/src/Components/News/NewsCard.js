@@ -21,7 +21,7 @@ function NewsCard(props) {
         <div className='content-part'>
            <h5 className='title'>{titleFunc(props.title)}</h5>
            <p>
-            {props.description.slice(0,100)}
+            {props.description.slice(0,200)}
             <a href={props.readmore} target='_blank'>Read more</a>
            </p>
            <div>

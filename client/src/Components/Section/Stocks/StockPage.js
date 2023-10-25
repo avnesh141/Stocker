@@ -13,11 +13,11 @@ function StockPage() {
   setTimeout(() => {
     // const funcst = () => {
       setCompData(stocks.find((item) => item.symbol === id));
-      console.log(compData);
+      // console.log(compData);
 
     let pcchange = document.getElementById("pc-change");
     let pchange = document.getElementById("p-change");
-    console.log(parseInt(compData.changep));
+    // console.log(parseInt(compData.changep));
     if (pcchange) {
       if (parseFloat(compData.changep) >= 0) {
         pcchange.style.color = "green";
@@ -93,7 +93,7 @@ function StockPage() {
     });
     const json = await response.json();
     toast.success(json.message);
-    console.log(response);
+    // console.log(response);
     openbuy();
     setdata({
       company: compData.name,
@@ -128,6 +128,8 @@ function StockPage() {
   };
 
   return (
+    <>
+      <h1 className="headStockPage">Company Stats</h1>
     <div className="stock-page-container">
       <div className="stock-page-box">
         <div className="stock-icon">
@@ -141,7 +143,7 @@ function StockPage() {
               // e.preventDefault();
               openbuy();
             }}
-          >
+            >
             Buy
           </button>}
           {!localStorage.getItem("token") && <button
@@ -150,16 +152,16 @@ function StockPage() {
               // e.preventDefault();
               navigate("/login");
             }}
-          >
+            >
             Login to Buy Or Sell
           </button>}
           {localStorage.getItem("token") &&
             <button
-              className="sell-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                opensell();
-              }}
+            className="sell-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              opensell();
+            }}
             >
               Sell
             </button>}
@@ -174,9 +176,9 @@ function StockPage() {
                 value={data.number}
                 name="number"
                 onChange={onchange}
-              />
+                />
             </p>
-            <p>Net value ={data.number * compData.price}</p>
+            <p>Net value =₹ {data.number * compData.price}</p>
             <button onClick={confirmbuy}>Confirm trans.</button>
           </div>
           <div className="qtyifClickedsell buysell" id="selldiv">
@@ -188,16 +190,16 @@ function StockPage() {
                 value={data.number}
                 name="number"
                 onChange={onchange}
-              />
+                />
             </p>
-            <p>Net value ={data.number * compData.price}</p>
+            <p>Net value = ₹ {data.number * compData.price}</p>
             <button onClick={confirmsell}>Confirm trans.</button>
           </div>
         </div>
         <div className="stock-prices">
-          <h2 className="stock-price">$ {compData["price"]}</h2>
+          <h2 className="stock-price">₹ {compData["price"]}</h2>
           <p className="stock-change positive">
-            <div id="pc-change">{compData["change"]}</div>
+            <div id="pc-change">₹ {compData["change"]}</div>
             <div id="p-change">({compData["changep"]}%)</div>
           </p>
         </div>
@@ -206,6 +208,7 @@ function StockPage() {
         </div>
       </div>
     </div>
+                </>
   );
 }
 

@@ -37,7 +37,7 @@ const clickhandler= async()=>{
     const json=await response.json();
     if (json.success) {
         toast.success("Updated in successfully");
-       navigate("/dashboard");
+       navigate("/profile");
       }
       else
       {

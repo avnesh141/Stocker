@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CryptoCard.css";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
-const ComapanyCard = (props) => {
+const CryptoCard = (props) => {
+  // console.log(props);
   const openbuy = () => {
     if (
       document.getElementById(`${props.id}buy`).style.display === "inline-block"
@@ -30,6 +32,7 @@ const ComapanyCard = (props) => {
     type: props.type,
     number: "",
     price: props.price,
+    symbol:props.coin_id
   });
 
   const Clickhandlersell = async () => {
@@ -49,6 +52,7 @@ const ComapanyCard = (props) => {
       type: props.type,
       number: 0,
       price: props.price,
+      symbol:props.coin_id
     });
   };
 
@@ -68,10 +72,12 @@ const ComapanyCard = (props) => {
     setdata({
       company: `${props.name}`,
       type: props.type,
+      symbol:props.coin_id,
       number: 0,
       price: props.price,
     });
   };
+
 
   const confirmbuy = () => {
     if (window.confirm("Are You ready for transaction")) {
@@ -89,6 +95,9 @@ const ComapanyCard = (props) => {
     setdata({ ...data, [e.target.name]: [e.target.value] });
   };
 
+
+  
+
   return (
     <div className="portList">
       <div className="portCard">
@@ -96,16 +105,19 @@ const ComapanyCard = (props) => {
           <div
             className="comName"
           >
-            <h5>{props.name}</h5>
+            <Link to={`/cryptoPage/${props.coin_id}`}>
+            {props.name}
+            </Link>
           </div>
             <img src={props.imgurl} alt="" />
           <div className="ltp">
             <h6>LTP ₹{props.price}</h6>
-            <h6>
-              ₹{props.change}({props.changepercent}%)
+            <h6 className="changes" style={{"color":`${props.change>0?'green':'red'}`}}>
+              ₹ {props.change} ({props.changepercent} %)
             </h6>
           </div>
           <button
+          // style={{"background"}}
             className="buy"
             onClick={(e) => {
               e.preventDefault();
@@ -158,4 +170,4 @@ const ComapanyCard = (props) => {
     </div>
   );
 };
-export default ComapanyCard;
+export default CryptoCard;

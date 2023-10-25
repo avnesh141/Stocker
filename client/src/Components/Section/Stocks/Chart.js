@@ -6,8 +6,10 @@ const CandlestickChart = (props) => {
     const func = async () => {
         // console.log(props.name);
         const url = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${props.name}&interval=5min&outputsize=full&apikey=RQM049WV6AUVS8M1`;
+        // const url="https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=inr&days=max";
         const response = await fetch(url);
         const parseData = await response.json();
+        console.log((parseData));
         // TIME_SERIES_INTRADAY
         // TIME_SERIES_MONTHLY_ADJUSTED
         // Monthly Adjusted Time Series

@@ -4,7 +4,7 @@ import "./news.css"
 
 function News() {
   return (
-    <div>
+    <div className='newsComponent'>
       <NewsComponent/>
     </div>
   )

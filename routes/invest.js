@@ -1,4 +1,5 @@
 const { body, validationResult } = require("express-validator");
+const Transact=require("../models/Transaction");
 
 const express = require("express");
 const router = express.Router();
@@ -16,6 +17,17 @@ router.get("/get", fetchuser, async (req, res) => {
   }
 });
 
+router.get("/transactions", fetchuser, async (req, res) => {
+  try {
+    // console.log("getStocks");
+    const transactions = await Transact.find({ user: req.user.id });
+    res.json({ transactions });
+  } catch (error) {
+    console.log(error);
+    res.send({ error:error.message });
+  }
+});
+
 
 router.post("/getbytype", fetchuser, async (req, res) => {
   try {
@@ -29,15 +41,16 @@ router.post("/getbytype", fetchuser, async (req, res) => {
 
 router.post("/buy", fetchuser, async (req, res) => {
   let success = false;
+  console.log(req.body);
   try {
     const userid = req.user.id;
-    console.log(userid);
+    // console.log(userid);
     let user = await User.findById({ _id: userid });
-    console.log(user);
+    // console.log(user);
     const amount = user.amount;
-    console.log(amount);
+    // console.log(amount);
     const number = parseFloat(req.body.number);
-    console.log(typeof req.body.number);
+    // console.log(typeof req.body.number);
     const price = req.body.price;
     if (amount < number * price) {
       return res.json({ message: "Insufficient Balance" });
@@ -47,6 +60,15 @@ router.post("/buy", fetchuser, async (req, res) => {
       type: req.body.type,
       company: req.body.company,
     });
+
+    let transact = await Transact.create({
+      user: userid,
+      company: req.body.company,
+      type: "buy",
+      number: number,
+      price: price,
+    });
+
     if (stock != null) {
       const id = stock._id;
       user = await User.findByIdAndUpdate(userid, {
@@ -75,9 +97,10 @@ router.post("/buy", fetchuser, async (req, res) => {
        company: req.body.company,
      });
     success = true;
-    console.log(user);
+    // console.log(user);
     res.json({message:"Bought SuccessFully"});
   } catch (error) {
+    console.log(error);
     res.json({message:"Error Occurred"  });
   }
 });
@@ -86,11 +109,11 @@ router.post("/sell", fetchuser, async (req, res) => {
   let success = false;
   try {
     const userid = req.user.id;
-    console.log(userid);
+    // console.log(userid);
     let user = await User.findById({ _id: userid });
-    console.log(user);
+    // console.log(user);
     const amount = user.amount;
-    console.log(amount);
+    // console.log(amount);
     const number = parseFloat(req.body.number);
     const price = req.body.price;
     let stock = await Stock.findOne({
@@ -98,9 +121,18 @@ router.post("/sell", fetchuser, async (req, res) => {
       type: req.body.type,
       company: req.body.company,
     });
-    console.log(stock);
+    // console.log(stock);
+    
+    let transact = await Transact.create({
+      user: userid,
+      company: req.body.company,
+      type: "sell",
+      number: number,
+      price: price,
+    });
+
     if (stock != null) {
-      console.log(stock.number);
+      // console.log(stock.number);
           if (stock.number < number)
           {
              return res.json({ message:"Not Able to sell" });
@@ -125,11 +157,6 @@ router.post("/sell", fetchuser, async (req, res) => {
       res.status(200).json({message:"Not Able to sell" });
     }
 
-    // user = await User.findByIdAndUpdate(userid, {
-    //   amount: eval(user.amount - price * number),
-    // });
-    // console.log(user);
-    // res.send(stock);
   } catch (error) {
     res.json({ message:"Error Occurred"});
   }

@@ -102,7 +102,7 @@ const ComapanyCard = (props) => {
       <div className="portCard">
         <div className="portContainer portContainerD">
           <div className="comName">
-             <Link to={`/${props.symbol}`}><h5>{props.company}</h5></Link>
+             <Link to={props.type==="stock"?`/${props.symbol}`:`/cryptoPage/${props.symbol}`}><h5>{props.company}</h5></Link>
           </div>
          < div>
             <h6>NET QTY {props.number}</h6>
