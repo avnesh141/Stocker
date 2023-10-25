@@ -17,7 +17,7 @@ const GetTransact=async()=>{
   })
   // console.log(response);
   const json =await response.json();
-  setTransact( Object.values(json)[0]);
+  setTransact(Object.values(json)[0].reverse().slice(0,10));
   // const data= Object.values(json);
   // console.log(data);
   // console.log( Object.values(json)[0]);

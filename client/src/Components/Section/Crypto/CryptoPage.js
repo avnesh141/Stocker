@@ -54,6 +54,7 @@ const opensell = () => {
 
 const Clickhandlersell = async () => {
   // console.log(data);
+  toast.success("Wait while request is processing");
   const response = await fetch(`/api/invest/sell`, {
     method: "POST",
     headers: {
@@ -75,7 +76,8 @@ const Clickhandlersell = async () => {
 };
 
 const Clickhandlerbuy = async () => {
-  console.log(data);
+  // console.log(data);
+  toast.success("Wait while request is processing");
   const response = await fetch(`/api/invest/buy`, {
     method: "POST",
     headers: {
@@ -86,7 +88,6 @@ const Clickhandlerbuy = async () => {
   });
   const json = await response.json();
   toast.success(json.message);
-  // console.log(response);
   openbuy();
   setdata({
     company: coindata.name,
@@ -103,7 +104,6 @@ const confirmbuy = () => {
   }
 };
 
-// console.log(data);
 const confirmsell = () => {
   if (window.confirm("Are You ready for transaction")) {
     Clickhandlersell();
@@ -119,7 +119,6 @@ const onchange = (e) => {
     price: coindata.market_data.current_price.inr,
   });
 };
-// console.log(data.number);
 
 
 

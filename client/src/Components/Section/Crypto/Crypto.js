@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CryptoCard from "./CryptoCard";
-// import { stocks } from "./Stocks";
 import "./Crypto.css";
 
 const Crypto = () => {
-  //   stocks.map((stock) => {
-  //     console.log(stock);
-  //   })
   const [mBardata,setMbarData]=useState([]);
   const [cryptodata, setdata] = useState([]);
   const fetchdata = async () => {
@@ -14,11 +10,8 @@ const Crypto = () => {
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false";
     const data = await fetch(url);
     const parsedata = await data.json();
-    // console.log(parsedata);
     setdata(parsedata.slice(0, 20));
-    // console.log(cryptodata);
     const ndata=parsedata.slice(0,6);
-    // console.log(ndata);
     setMbarData(ndata);
   };
   useEffect(() => {

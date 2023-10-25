@@ -61,6 +61,7 @@ function StockPage() {
 
   const Clickhandlersell = async () => {
     // console.log(data);
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/sell`, {
       method: "POST",
       headers: {
@@ -83,6 +84,7 @@ function StockPage() {
 
   const Clickhandlerbuy = async () => {
     // console.log(data);
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/buy`, {
       method: "POST",
       headers: {

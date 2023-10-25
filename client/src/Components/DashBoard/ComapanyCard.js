@@ -33,6 +33,7 @@ const ComapanyCard = (props) => {
   const [data, setdata] = useState({ company: `${props.company}`,symbol: props.symbol, type: props.type, number: "", price: props.price })
 
   const Clickhandlersell = async () => {
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/sell`, {
       method: "POST",
       headers: {
@@ -56,6 +57,7 @@ const ComapanyCard = (props) => {
 // console.log(data);
   const Clickhandlerbuy = async () => {
     // console.log(data);
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/buy`, {
       method: "POST",
       headers: {

@@ -36,6 +36,7 @@ const CryptoCard = (props) => {
   });
 
   const Clickhandlersell = async () => {
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/sell`, {
       method: "POST",
       headers: {
@@ -57,7 +58,8 @@ const CryptoCard = (props) => {
   };
 
   const Clickhandlerbuy = async () => {
-    console.log(data);
+    // console.log(data);
+    toast.success("Wait while request is processing");
     const response = await fetch(`/api/invest/buy`, {
       method: "POST",
       headers: {
