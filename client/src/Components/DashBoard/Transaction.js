@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import TransactionCard from './TransactionCard';
 import "./TransactionCard.css"
 function Transaction() {
-console.log("mounted");
+// console.log("mounted");
 const [transact,setTransact]=useState([]);
 
 const GetTransact=async()=>{
-  console.log("inside GEt");
+  // console.log("inside GEt");
   const response =await fetch("/api/invest/transactions",
   {
     method:"GET",
@@ -33,7 +33,7 @@ useEffect(() => {
     <div className='Transactionslist'>
       {transact!=null &&  transact.map((item,index)=>{
         return (
-          <TransactionCard name={item.company} type={item.type} date={item.date} id={item.t_id} amount={item.price*item.number}/>
+          <TransactionCard key={index} name={item.company} type={item.type} date={item.date} id={item.t_id} amount={item.price*item.number}/>
         );
       })}
     </div>

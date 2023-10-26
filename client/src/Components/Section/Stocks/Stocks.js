@@ -91,9 +91,9 @@ function Stocks() {
       <div className="stocksContainer">
         <h3 className="heading">Stocks</h3>
         <div className="gainersList">
-          {stocks.map((stock) => {
+          {stocks.map((stock,index) => {
             return (
-              <div className="gainersCard">
+              <div key={index} className="gainersCard">
                 <div className="gainersContainer">
                   <img
                     src={stock.image}
@@ -116,16 +116,16 @@ function Stocks() {
         </div>
         {/* onClick={(e)=>cardClicked(e)} */}
       </div>
-      <div class="parallax-2"></div>
+      <div className="parallax-2"></div>
 
       <hr></hr>
 
       <div className="stocksContainer">
         <h3 className="heading">Top Gainers</h3>
         <div className="gainersList">
-          {gainers.map((stock) => {
+          {gainers.map((stock,index) => {
             return (
-              <div className="gainersCard">
+              <div key={index} className="gainersCard">
                 <div className="gainersContainer">
                   <img
                     src={stock.image}
@@ -152,9 +152,9 @@ function Stocks() {
       <div className="stocksContainer">
         <h3 className="heading">Top Losers</h3>
         <div className="gainersList">
-          {losers.map((stock) => {
+          {losers.map((stock,index) => {
             return (
-              <div className="gainersCard">
+              <div key={index} className="gainersCard">
                 <div className="gainersContainer">
                   <img
                     src={stock.image}

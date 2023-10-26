@@ -56,3 +56,27 @@
     transform: translateX(-100%);
    }
 }
+
+.newAlert{
+    text-align: center;
+    color: red;
+    background-color: aqua;
+    animation: alert 1s linear infinite;
+    /* display: inline-block; */
+    margin: auto;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgb(13, 116, 13);
+}
+
+@keyframes alert {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.15;
+    }
+    100%{
+        scale: 1;
+    }
+}

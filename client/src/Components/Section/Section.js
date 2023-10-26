@@ -14,26 +14,21 @@ function Section() {
     document.getElementById(e.target.id).classList.add('active-page')
     if(e.target.id==='0'){
       document.getElementById(e.target.id).classList.add('active-page')
-      document.getElementById('1').classList.remove('active-page')
+      // document.getElementById('1').classList.remove('active-page')
       document.getElementById('2').classList.remove('active-page')
     }
-    else if(e.target.id==='1'){
+    else if(e.target.id==='2'){
       document.getElementById(e.target.id).classList.add('active-page')
       document.getElementById('0').classList.remove('active-page')
-      document.getElementById('2').classList.remove('active-page')
+      // document.getElementById('2').classList.remove('active-page')
     }
 
-    else{
-      document.getElementById(e.target.id).classList.add('active-page')
-      document.getElementById('1').classList.remove('active-page')
-      document.getElementById('0').classList.remove('active-page')
-    }
   }
   return (
     <div className='scontainer'>
       
-      {active==="0" && <div class="parallax-1"></div>}
-      { active==="2" && <div  class="parallax-cr"> 
+      {active==="0" && <div className="parallax-1"></div>}
+      { active==="2" && <div  className="parallax-cr"> 
       {/* <video src={vdo} autoPlay="true" style={{height:"30vh",width:"100vw"}} /> */}
       </div>}
       <div className='box'>
@@ -43,7 +38,6 @@ function Section() {
         <div className='optionsList'>
           <h3 id="0" className='option active-page' onClick={optionsClicked} >Stocks</h3>
           <h3 id="2" className='option' onClick={optionsClicked}>Crypto</h3>
-          <h3 id="1" className='option' onClick={optionsClicked}>Mutual Funds</h3>
         </div>
         
         {(active === "0") &&

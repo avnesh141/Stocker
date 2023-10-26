@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ComapanyCard from "./ComapanyCard";
 import "./Dashboard.css";
-import {Link, json, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Transaction from "./Transaction";
+import Loader from "../Loader";
 
 function Dashboard() {
+const[ch,setch]=useState(false);
   const [boughtst, setboughtst] = useState([]);
   const [boughtcr, setboughtcr] = useState([]);
   const [invest, setinvest] = useState(0);
@@ -36,9 +38,8 @@ function Dashboard() {
 
   const [user, setuser] = useState({});
   const funcuser = async () => {
-    const currUser=localStorage.getItem("user");
-      if(currUser != undefined)
-    {
+    const currUser = localStorage.getItem("user");
+    if (currUser != undefined) {
       setuser(JSON.parse(currUser))
       return;
     }
@@ -50,41 +51,42 @@ function Dashboard() {
       },
     });
     const newuser = await response.json();
-    newuser.date=newuser.date.slice(0,10);
+    newuser.date = newuser.date.slice(0, 10);
     setuser(newuser);
-    // console.log(newuser);
-    localStorage.setItem("user",JSON.stringify(newuser));
-    if(!json.success)
-    {
+    localStorage.setItem("user", JSON.stringify(newuser));
+    if (!json.success) {
       toast.error(json.error);
     }
-    // user.date=user.date.slice(0,8);
   };
 
   const navigate = useNavigate();
   const onclickwallet = () => {
     navigate("/wallet");
-}
-
-const onmouseover=()=>{
-    document.getElementById('dropdown').style.display="block";
   }
-  const onmouseleave=()=>{
-    document.getElementById('dropdown').style.display="none";
-}
+
+  const onmouseover = () => {
+    document.getElementById('dropdown').style.display = "block";
+  }
+  const onmouseleave = () => {
+    document.getElementById('dropdown').style.display = "none";
+  }
 
 
 
   useEffect(() => {
     boughtfunc();
     funcuser();
-    console.log(user);
-  },[]);
+    setTimeout(() => {
+      setch(true);
+    }, 2000);
+  }, []);
 
   return (
+    <>
+    { ch==true &&
     <div className="Dashboard-page">
       <div className="topportContainer">
-      <h2
+        <h2
           style={{
             color: "#43bc43",
           }}
@@ -95,8 +97,8 @@ const onmouseover=()=>{
         <div className="profNwall">
           {/* <div className="transact"> */}
           <img
-          onMouseOver={onmouseover}
-          onMouseLeave={onmouseleave}
+            onMouseOver={onmouseover}
+            onMouseLeave={onmouseleave}
             style={{
               width: "50px",
               height: "50px",
@@ -105,50 +107,39 @@ const onmouseover=()=>{
             }}
             src={user.picture}
             alt=""
-            />
-          <div  id="dropdown"
-             onMouseOver={onmouseover}
-             onMouseLeave={onmouseleave}>
+          />
+          <div id="dropdown"
+            onMouseOver={onmouseover}
+            onMouseLeave={onmouseleave}>
             <div className="up-arrow"></div>
             <div className="drop-entity"><Link to="/profile">Go To Profile</Link></div>
-            
-          </div>
-            {/* <button className="withdraw">Withdraw</button>
-            <button className="withdraw">Deposit</button> */}
-            {/* </div> */}
-          <div style={{textAlign:"justify"}}>
-          <h4
-            style={{
-              color: "#43bc43",
-              margin: "10px",
-            }}
-          >
-            Your Balance: ₹ {user.amount}/-
-          </h4>
-          <h4
-            style={{
-              color: "#43bc43",
-              margin: "10px",
-            }}
-            >
-            Amount Invested: ₹ {invest}/-
-          </h4>
-            </div>
-        </div>
-        
 
-        {/* <div>
-          <h3>Amount:{user.amount}</h3>
-        </div> */}
-        {/* <div>
-          <h3>Invested:{invest}</h3>
-        </div> */}
+          </div>
+          <div style={{ textAlign: "justify" }}>
+            <h4
+              style={{
+                color: "#43bc43",
+                margin: "10px",
+              }}
+            >
+              Your Balance: ₹ {user.amount}/-
+            </h4>
+            <h4
+              style={{
+                color: "#43bc43",
+                margin: "10px",
+              }}
+            >
+              Amount Invested: ₹ {invest}/-
+            </h4>
+          </div>
+        </div>
+
         <div className="boughtStocks">
           <h3 style={{ color: "rgb(12, 177, 177)" }}>Stocks</h3>
           {boughtst.length ? (
             boughtst.map((stock, key) => {
               return (
-                // stock.type === "stock" && (
                 <ComapanyCard
                   company={stock.company}
                   number={stock.number}
@@ -157,11 +148,7 @@ const onmouseover=()=>{
                   symbol={stock.symbol}
                   id={stock._id}
                   key={key}
-                  // ({
-                  //   console.log(stock.symbol);
-                  // })
                 />
-                // )
               );
             })
           ) : (
@@ -173,7 +160,6 @@ const onmouseover=()=>{
           {boughtcr.length ? (
             boughtcr.map((stock, key) => {
               return (
-                // stock.type==="crypto" &&
                 <ComapanyCard
                   company={stock.company}
                   number={stock.number}
@@ -191,12 +177,15 @@ const onmouseover=()=>{
         </div>
       </div>
       <div className="Transactions">
-           <h1>Your Recent Transactions</h1>
-            <Transaction/>
-           {/* <div className="transactionTable">
-           </div> */}
+        <h1>Your Recent Transactions</h1>
+        <Transaction />
       </div>
-    </div>
+    </div>}
+    {
+      ch==false &&
+      <Loader/>
+    }
+    </>
   );
 }
 
