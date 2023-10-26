@@ -134,11 +134,17 @@ function CryptoPage() {
         <>
           <div className='cryPageHead'>
             <h1 className='cryPageHeadName' >{coindata.name}</h1>
-            <img src={coindata.image.large} />
+            <img src={coindata.image.large} alt="Loading"/>
           </div>
-          <THREEDCarousal currentPrice={coindata.market_data.current_price.inr} date={coindata.genesis_date} rank={coindata.market_cap_rank}
-            priceChange={coindata.market_data.price_change_24h_in_currency.inr.toFixed(2)} marketCap={coindata.market_data.market_cap.inr} atl={coindata.market_data.atl.inr}
-            ath={coindata.market_data.ath.inr} twitter={coindata.community_data.twitter_followers} />
+          <THREEDCarousal
+            currentPrice={coindata.market_data.current_price.inr}
+            date={coindata.genesis_date}
+            rank={coindata.market_cap_rank}
+            priceChange={coindata.market_data.price_change_24h_in_currency.inr.toFixed(2)}
+            marketCap={coindata.market_data.market_cap.inr}
+            atl={coindata.market_data.atl.inr}
+            ath={coindata.market_data.ath.inr}
+            twitter={coindata.community_data.twitter_followers} />
           <div className='CryPageDesc'>
             <h2>About {coindata.name}</h2>
             <p>{coindata.description.en.replace(/<a[^>]*>(.*?)<\/a>/g, '$1')}</p>
@@ -209,8 +215,8 @@ function CryptoPage() {
           </div>
         </>
       }
-      {coindata==undefined &&
-      <Loader/>
+      {coindata === undefined &&
+        <Loader />
       }
     </div>
   )

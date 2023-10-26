@@ -4,9 +4,8 @@ import "./Crypto.css";
 import Loader from "../../Loader";
 
 const Crypto = () => {
-const [ch,setch]=useState(false);
   const [mBardata, setMbarData] = useState([]);
-  const [cryptodata, setdata] = useState([]);
+  const [cryptodata, setdata] = useState();
   const fetchdata = async () => {
     let url =
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false";
@@ -18,12 +17,11 @@ const [ch,setch]=useState(false);
   };
   useEffect(() => {
     fetchdata();
-      setch(true);
   }, []);
 
   return (
     <>
-      {ch==true &&
+      {cryptodata &&
       <div className="cryptodiv">
         <div className="mbars">
           <div className="mbar">
@@ -77,7 +75,7 @@ const [ch,setch]=useState(false);
           })}
         </div>
       </div>}
-      { ch==false &&
+      { cryptodata === undefined &&
       <Loader/>
       }
     </>
