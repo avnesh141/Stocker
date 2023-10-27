@@ -4,27 +4,24 @@ import "./Newscomponent.css"
 import Loader from '../Loader';
 
 function NewsComponent() {
-const [ch,setch]=useState(false);
-  const [data, setdata] = useState([]);
-  const url = "https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=H9W3SHVG4UI403M4";
+  const [data, setdata] = useState();
+  const url = "https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=S3D7PTM84AB19YCU";
   const funcData = async () => {
     const response = await fetch(url);
     const aa = await response.json();
+    console.log(response);
+    console.log(aa);
     setdata(aa["feed"]);
     console.log(aa["feed"]);
   }
   useEffect(() => {
     funcData();
-    setTimeout(() => {
-      setch(true);
-    }, 2000);
-    console.log(data);
-  })
+  },[])
 
 
   return (
     <>
-    {data!=undefined &&   <div className='maindivnews'>
+    {data &&   <div className='maindivnews'>
       <h1>Trending News of Stock Market</h1>
       <div className='news-component'>
         {
@@ -43,7 +40,7 @@ const [ch,setch]=useState(false);
           }
       </div>
     </div>}
-  {data==undefined &&
+  {data === undefined &&
     <Loader/>}
           </>
   )

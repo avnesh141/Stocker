@@ -8,6 +8,7 @@ import Loader from '../../Loader';
 
 function CryptoPage() {
   const { id } = useParams();
+  console.log(id);
   const navigate = useNavigate();
   const [coindata, setCoinData] = useState();
   const [data, setdata] = useState({
@@ -122,10 +123,10 @@ function CryptoPage() {
   };
 
 
-
   useEffect(() => {
     func();
-  }, [])
+    console.log(window.location.pathname);
+  }, [window.location.pathname])
 
   return (
     <div>

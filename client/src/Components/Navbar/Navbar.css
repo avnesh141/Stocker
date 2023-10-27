@@ -51,20 +51,18 @@ nav {
 
 
 #main_logo_andname {
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 15vw;
+    justify-content: space-between;
+    width: 185px;
     /* margin-right: 5vw; */
 }
 
-#logo-37 {
-    width: 3vw;
-}
 
 #companyname {
     font-size: 2.9vh;
-    width: 10vw;
+    width: 130px;
     /* padding-left: 10px; */
 }
 
@@ -173,6 +171,7 @@ nav {
 }
 
 .autocom-box{
+    z-index: 55;
     /* height: 0; */
     position: fixed;
     top: 10vh;
@@ -181,15 +180,25 @@ nav {
     /* padding: 20px; */
     border-radius: 5px;
     width: 18vw;
-    height: 50vh;
+    max-height: 50vh;
+    overflow: auto;
 
 }
 
 .stock-name{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(58,45,253,0.4823179271708683) 100%);
+    margin: 5px;
     display: flex;
-    overflow-x: scroll;
     border-bottom: solid 1px grey;
     justify-content: space-between;
+    color: black;
+    padding: 2px;
+
+}
+.stock-name:hover{
+    background-color:rgba(34,193,195,0);
+    background: linear-gradient(0deg, rgba(34,193,195,0.1) 0%, rgba(58,45,253,0.4823179271708683) 100%);
 
 }
 

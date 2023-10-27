@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import Hamburger from 'hamburger-react'
 const Navbar = () => {
@@ -13,52 +12,31 @@ const Navbar = () => {
     navigate("/login");
   };
   const [width, setWidth] = useState(window.innerWidth);
-   const updateWidth = () => {
-     setWidth(window.innerWidth);
-   };
-   useEffect(() => {
-     window.addEventListener("resize", updateWidth);
-     return () => window.removeEventListener("resize", updateWidth);
-   }, []);
-  const [searchResults, setSearchResults] = useState([]);
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
   const [companies, setCompanies] = useState([]);
   const [active, setActive] = useState(0);
   const [isOpen, setOpen] = useState(false);
   var comp = [];
-  const searchHandle = (e) => {
+  const searchHandle = async (e) => {
     sclick(true);
     if (e.target.value === "") {
       setCompanies([]);
     }
     var search = e.target.value;
-    // if (userData) {
-    //   axios
-    //     .get(
-    //       `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${search}&apikey=QHQFTL0K4L4CTGWG`
-    //     )
-    //     .then((res) => {
-    //       console.log(res);
-    //       emptyArray = res.data.bestMatches;
-    //       setSearchResults(res.data.bestMatches);
-    //     });
-    //    //show autocomplete box
-
-    // } else {
-    //   searchWrapper.classList.remove("active"); //hide autocomplete box
-    // }
-
-    axios
-      .get(
-        `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${search}&apikey=QHQFTL0K4L4CTGWG`
-      )
-      .then((res) => {
-        console.log(res);
-        setSearchResults(res.data.bestMatches);
-        if (searchResults.length !== 0) {
-          searchResults.forEach((element) => {
+    const response = await fetch(`https://api.coingecko.com/api/v3/search?query=${search}`);
+    const json = await response.json();
+ 
+        if (json.coins.length !== 0) {
+          json.coins.forEach((element) => {
             comp.push({
-              name: element["2. name"],
-              symbol: element["1. symbol"],
+              name: element.name,
+              symbol: element.id,
             });
           });
         }
@@ -79,41 +57,20 @@ const Navbar = () => {
         } else {
           document.getElementById("sugg").classList.remove("active-search");
         }
-        console.log(companies);
-      });
 
-    console.log(searchResults);
 
-    // setTimeout(()=>{
-    //   if(e.target.value !=='') {
-    //     document.getElementById('sugg').removeChild(div);
-    //     searchResults.map((data)=>{
-    //       var div= document.createElement('div');
-    //       div.innerHTML = data.name;
-    //       document.getElementById('sugg').appendChild(div);
-    //     })
-    //   }
-    // },500)
-    console.log(companies);
     if (!search) {
       sclick(false);
     }
   };
-  // useEffect(() => {
-  //  setTimeout(() => {
-  //    sclick(false);
-  //  }, 3000);
-  // })
+
+
+
   const onclickmenu = () => {
     setOpen(false);
-   }
+  }
 
-  const showStockPage = (e) => {
-    console.log("clicked");
-    var key = e.target.key;
-    localStorage.setItem("selectedCard", key);
-    navigate("/stockpage");
-  };
+
   return (
     <div className="maindivNav" >
       <nav className="nav-pc">
@@ -122,9 +79,9 @@ const Navbar = () => {
             <Link to="/">
               <svg
                 id="logo-37"
-                width="42"
-                height="38"
-                viewBox="0 0 42 38"
+                width="45px"
+                height="45px"
+                // viewBox="0 0 42 38"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -211,13 +168,13 @@ const Navbar = () => {
                       News
                     </Link>
                   </li>
-                    {localStorage.getItem("token") && (
-                  <li onClick={onclickmenu}>
+                  {localStorage.getItem("token") && (
+                    <li onClick={onclickmenu}>
                       <Link className="nav_items" to="/dashboard">
                         DashBoard
                       </Link>
-                  </li>
-                    )}
+                    </li>
+                  )}
                   <li onClick={onclickmenu}
                   >
                     {!localStorage.getItem("token") && (
@@ -267,7 +224,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link className="nav_items" to="/news">
-                   News
+                    News
                   </Link>
                 </li>
                 <li>
@@ -308,27 +265,22 @@ const Navbar = () => {
                 >
                   Logout
                 </button>
-                // <div id="logout">
-                //   <Link to="/login" onClick={onclick}>
-                //     LogOut
-                //   </Link>
-                // </div>
               )}
             </div>
           </div>
         )}
       </nav>
       {click && (
-        <div id="sugg" class="autocom-box">
+        <div id="sugg" className="autocom-box">
           {companies.length !== 0 ? (
             companies.map((company) => {
               return (
                 <div
                   key={company.symbol}
                   className="stock-name"
-                  onClick={(e) => showStockPage(e)}
+                  onClick={(e) =>navigate(`/cryptoPage/${company.symbol}`)}
                 >
-                  {company.symbol}
+                  {company.name}
                 </div>
               );
             })
