@@ -5,7 +5,8 @@ text-align: center;
 }
 .cryPageHeadName{
 color: red;
-margin: 20px;
+margin-top: 20px;
+margin-bottom: 20px;
 font-size:60px;
 font-weight: bolder;
 }
@@ -40,3 +41,8 @@ font-weight: bolder;
    margin: auto;
 }
 
+@media (max-width:400px) {
+  .cryPageHeadName{
+    font-size: 30px;
+  }
+}

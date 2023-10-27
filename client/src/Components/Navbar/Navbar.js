@@ -22,48 +22,49 @@ const Navbar = () => {
   const [companies, setCompanies] = useState([]);
   const [active, setActive] = useState(0);
   const [isOpen, setOpen] = useState(false);
+  const [search,setsearch]=useState("");
   var comp = [];
   const searchHandle = async (e) => {
-    sclick(true);
     if (e.target.value === "") {
       setCompanies([]);
     }
-    var search = e.target.value;
+    var val = e.target.value;
+    setsearch(val);
     const response = await fetch(`https://api.coingecko.com/api/v3/search?query=${search}`);
     const json = await response.json();
- 
-        if (json.coins.length !== 0) {
-          json.coins.forEach((element) => {
-            comp.push({
-              name: element.name,
-              symbol: element.id,
-            });
-          });
-        }
-        setCompanies(comp);
-        comp = [];
-        if (e.target.length === 0) {
-          document.getElementById("sugg").classList.add("display-none");
-          document.getElementById("sugg").classList.remove("display-flex");
 
-          setActive(0);
-        } else {
-          document.getElementById("sugg").classList.add("display-flex");
-          document.getElementById("sugg").classList.remove("display-none");
-          setActive(1);
-        }
-        if (active) {
-          document.getElementById("sugg").classList.add("active-search");
-        } else {
-          document.getElementById("sugg").classList.remove("active-search");
-        }
+    if (json.coins.length !== 0) {
+      sclick(true);
+      json.coins.forEach((element) => {
+        comp.push({
+          name: element.name,
+          symbol: element.id,
+        });
+      });
+    }
+    setCompanies(comp);
+    comp = [];
+    if (e.target.length === 0) {
+      document.getElementById("sugg").classList.add("display-none");
+      document.getElementById("sugg").classList.remove("display-flex");
 
-
-    if (!search) {
-      sclick(false);
+      setActive(0);
+    } else {
+      document.getElementById("sugg").classList.add("display-flex");
+      document.getElementById("sugg").classList.remove("display-none");
+      setActive(1);
+    }
+    if (active) {
+      document.getElementById("sugg").classList.add("active-search");
+    } else {
+      document.getElementById("sugg").classList.remove("active-search");
     }
   };
 
+  useEffect(() => {
+     sclick(search!="");
+  })
+  
 
 
   const onclickmenu = () => {
@@ -138,7 +139,9 @@ const Navbar = () => {
         </div>
         {width < 800 && (
           <div className="menuToggle">
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+            <Hamburger onToggle={()=>{
+              setsearch("")
+            }} toggled={isOpen} toggle={setOpen} />
 
             {isOpen && (
               <div id="navlist_small">
@@ -148,9 +151,36 @@ const Navbar = () => {
                       <input
                         id="searchbox"
                         type="text"
+                        value={search}
                         placeholder="Search for stocks..."
-                        onKeyUp={(e) => searchHandle(e)}
+                        onChange={(e) => {
+                          searchHandle(e)}}
                       />
+                      {/* <img src={require("./cross-icon.jpg")} /> */}
+                      {click && (
+                        <div id="sugg" className="autocom-box" onClick={(e)=>{
+                        }}>
+                          {companies.length !== 0 ? (
+                            companies.map((company) => {
+                              return (
+                                <div
+                                  key={company.symbol}
+                                  className="stock-name"
+                                  onClick={() => {
+                                    setsearch("");
+                                    sclick(false);
+                                    navigate(`/cryptoPage/${company.symbol}`)}
+                                }
+                                >
+                                  {company.name}
+                                </div>
+                              );
+                            })
+                          ) : (
+                            <div style={{ display: "none" }}></div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </li>
                   <li onClick={onclickmenu}>
@@ -245,6 +275,28 @@ const Navbar = () => {
                   placeholder="Search for stocks..."
                   onKeyUp={(e) => searchHandle(e)}
                 />
+                {/* <img src={require("./cross-icon.jpg")}/> */}
+                {click && (
+                  <div id="sugg" className="autocom-box">
+                    {companies.length !== 0 ? (
+                      companies.map((company) => {
+                        return (
+                          <div
+                            key={company.symbol}
+                            className="stock-name"
+                            onClick={(e) => {
+                              sclick(false);
+                              navigate(`/cryptoPage/${company.symbol}`)}}
+                          >
+                            {company.name}
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div style={{ display: "none" }}></div>
+                    )}
+                  </div>
+                )}
               </div>
               {!localStorage.getItem("token") && (
                 <div id="login">
@@ -270,25 +322,6 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-      {click && (
-        <div id="sugg" className="autocom-box">
-          {companies.length !== 0 ? (
-            companies.map((company) => {
-              return (
-                <div
-                  key={company.symbol}
-                  className="stock-name"
-                  onClick={(e) =>navigate(`/cryptoPage/${company.symbol}`)}
-                >
-                  {company.name}
-                </div>
-              );
-            })
-          ) : (
-            <div style={{ display: "none" }}></div>
-          )}
-        </div>
-      )}
     </div>
   );
 };

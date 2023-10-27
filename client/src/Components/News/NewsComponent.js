@@ -11,7 +11,7 @@ function NewsComponent() {
     const aa = await response.json();
     console.log(response);
     console.log(aa);
-    setdata(aa["feed"]);
+    setdata(aa["feed"].slice(0,20));
     console.log(aa["feed"]);
   }
   useEffect(() => {

@@ -31,6 +31,7 @@ function CryptoPage() {
       number: 0,
       price: coindata.market_data.current_price.inr,
     });
+    // console.log(coindata);
     // console.log(json.description.en.replace(/<a[^>]*>(.*?)<\/a>/g, '$1'));
 
   }
@@ -134,7 +135,7 @@ function CryptoPage() {
         coindata &&
         <>
           <div className='cryPageHead'>
-            <h1 className='cryPageHeadName' >{coindata.name}</h1>
+            <h2 className='cryPageHeadName' >{coindata.name}</h2>
             <img src={coindata.image.large} alt="Loading"/>
           </div>
           <THREEDCarousal

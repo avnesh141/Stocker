@@ -30,9 +30,8 @@
     width: 200px;
     height: 45px;
     /* padding: 10px; */
-    background-color:rgba(110, 72, 221, 0.2);
-  }
-  
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  }  
   .slide img {
     width: 200px;
     height: 175px;
@@ -54,7 +53,7 @@
   
   In the picture above, we want to find the radius of the circle (which isn't exactly a circle because it's made up of triangles). So we can cut each triangle in half and solve for `r` (radius). We can solve for `r` using some geometry and our own elements' dimensions. 
   
-  The width of the slides is 300px. We're going to split those triangles in half and use the TANGENT function in geometry/trigonemty to solve for `r`. And since we're splitting each of the 9 triangles (the slides) in half for this, we need to account for the fact that our key angle is now going to be 20º and not 40º. We can solve for `r` by taking our smaller triangles' width (150px) and dividing by the tangent of 20º (in degrees, not radians). So:
+  The width of the slides is 300px. We're going to split those triangles in half and use the TANGENT function in geometry/trigonemty to solve for `r`. And since we're splitting each of the 9 triangles (the slides) in half for this, we need to account for the fact that our key angle is now going to be 20º and not 40º. We can solve for `r` by taking our smaller triangles' width (100px) and dividing by the tangent of 20º (in degrees, not radians). So:
   
               150
      r =  -----------
@@ -109,3 +108,40 @@
       transform: rotateY(0deg);
     }
   } 
+
+
+  @media (max-width:400px) {
+    .slide.one {
+      transform: rotateY(0deg) translateZ(150px);
+    }
+    .slide.two {
+      transform: rotateY(45deg) translateZ(150px);
+    }
+    .slide.three {
+      transform: rotateY(90deg) translateZ(150px);
+    }
+    .slide.four {
+      transform: rotateY(135deg) translateZ(150px);
+    }
+    .slide.five {
+      transform: rotateY(180deg) translateZ(150px);
+    }
+    .slide.six {
+      transform: rotateY(225deg) translateZ(150px);
+    }
+    .slide.seven {
+      transform: rotateY(270deg) translateZ(150px);
+    }
+    .slide.eight {
+      transform: rotateY(315deg) translateZ(150px);
+    }
+    .cryPageHead img{
+      width: 200px;
+    }
+
+    .slide{
+      width: 115px;
+      height: 60px;
+    }
+  }
+

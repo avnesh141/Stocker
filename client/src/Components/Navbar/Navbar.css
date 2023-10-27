@@ -26,8 +26,8 @@ nav {
     position: absolute;
     top: 12vh;
     width: 100vw;
-    background-color: rgb(58, 58, 58);
-    height: 100vh;
+    background-color:rgba(58, 58, 58,.95);;
+    /* height: 100vh; */
     left: 0;
 }
 
@@ -44,6 +44,7 @@ nav {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 0;
 }
 .navitems li {
     margin: 10px;
@@ -172,17 +173,14 @@ nav {
 
 .autocom-box{
     z-index: 55;
-    /* height: 0; */
     position: fixed;
     top: 10vh;
-    left: 65vw;
     background-color: aliceblue;
     /* padding: 20px; */
     border-radius: 5px;
-    width: 18vw;
     max-height: 50vh;
     overflow: auto;
-
+    width: 200px;
 }
 
 .stock-name{
@@ -215,7 +213,7 @@ nav {
 
 #nav_list li {
     list-style: none;
-    padding: 0 2vw;
+    padding: 0 1vw;
 }
 
 .nav_items {
@@ -295,4 +293,24 @@ nav {
 
 .searchAndResults{
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchAndResults img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+@media (max-width:800px) {
+    .autocom-box{
+        top: 22vh;
+        max-height: 31vh;
+    }
+    .navitems{
+        margin: 0;
+        padding: 0;
+    }
 }
