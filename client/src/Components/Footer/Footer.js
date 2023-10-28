@@ -14,19 +14,19 @@ function App() {
         <div className="footer-container">
           <div className="left-col">
             <div className="social-media">
-              <a href="https://www.facebook.com/" target="_blank">
+              <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
                 <img src={Facebook} alt="facebook" />
               </a>
-              <a href="https://www.twitter.com/" target="_blank">
+              <a href="https://www.twitter.com/" rel="noreferrer" target="_blank">
                 <img src={Twitter} alt="twitter" />
               </a>
-              <a href="https://www.instagram.com/" target="_blank">
+              <a href="https://www.instagram.com/" rel="noreferrer" target="_blank">
                 <img src={Insta} alt="insta" />
               </a>
-              <a href="https://www.youtube.com/" target="_blank">
+              <a href="https://www.youtube.com/" rel="noreferrer" target="_blank">
                 <img src={Youtube} alt="youtube" />
               </a>
-              <a href="https://www.linkedin.com/" target="_blank">
+              <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
                 <img src={Linkedin} alt="linkedin" />
               </a>
             </div>
@@ -56,6 +56,7 @@ function App() {
           </div>
           <div style={{ width: "200px", height: "200px" }}>
             <iframe
+            title="gmap"
               width="100%"
               height="600"
               style={{ widows: "200px", height: "200px" }}

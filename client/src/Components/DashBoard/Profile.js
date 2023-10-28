@@ -7,7 +7,7 @@ function Profile() {
   return (
     <div className='mainProfile'>
         <h1>Welcome {user.name}</h1>
-        <img src={user.picture}/>
+        <img src={user.picture} alt=""/>
         <div className='profileDetails'>
           <div className='entity-row'>
             <div>Name</div>

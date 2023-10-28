@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Stocks.css";
 import banknifty from "./Bank-nifty.jpg";
 import nifty from "./nifty.png";
 import sensex from "./sensex.webp"
-import { Navigate, useNavigate } from "react-router-dom";
 import { stocks } from "./USStockCompanies";
-// import usCompanies from './USStockCompanies';
 import { Link } from "react-router-dom";
 function Stocks() {
-  const navigate = useNavigate();
-  // const cardClicked = (e) => {
-  //     navigate('/stockpage')
-  //     var sym = e.target.id;
-  //     var x=stocks.find(item => item.symbol === sym)
-  //     console.log(x);
-  //     localStorage.setItem('selectedCard',JSON.stringify(x));
-  // }
+
 
   let gainers = [...stocks].sort((a, b) => (a.changep < b.changep ? 1 : -1));
   let losers = [...stocks].sort((a, b) => (a.changep > b.changep ? 1 : -1));

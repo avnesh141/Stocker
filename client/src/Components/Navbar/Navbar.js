@@ -62,7 +62,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-     sclick(search!="");
+     sclick(search !== "");
   })
   
 

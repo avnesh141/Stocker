@@ -126,11 +126,7 @@ const Advertising = styled.div`
     margin: 80px 0 0px 0;
   }
 `;
-const ButtonsRow = styled.div`
-  @media (max-width: 860px) {
-    justify-content: space-between;
-  }
-`;
+
 const AddLeft = styled.div`
   width: 50%;
   p {

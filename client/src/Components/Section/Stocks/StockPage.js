@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Chart from "./Chart";
 import { useNavigate } from "react-router-dom";
 import "./StockPage.css";
@@ -135,7 +135,7 @@ function StockPage() {
     <div className="stock-page-container">
       <div className="stock-page-box">
         <div className="stock-icon">
-          <img src={compData.image} style={{width:"100px",height:"100px"}}/>
+          <img src={compData.image} alt="loading" style={{width:"100px",height:"100px"}}/>
         </div>
           <div className="button-div">
             <h1 className="compHead">{compData["name"]}</h1>

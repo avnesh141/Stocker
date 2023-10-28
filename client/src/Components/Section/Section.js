@@ -3,7 +3,6 @@ import './Section.css'
 import Stocks from './Stocks/Stocks'
 import MutualFunds from './MutualFunds/MutualFunds'
 import Crypto from './Crypto/Crypto'
-import vdo from "./img/crypt.mp4"
 function Section() {
 
   const [active, setActive] = useState("0");

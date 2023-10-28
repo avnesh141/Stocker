@@ -20,12 +20,10 @@ const CandlestickChart = (props) => {
         let dates = Object.keys(ndata);
         // console.log(dates);
         let finaldata = [];
-        let val = Object.values(ndata);
         dates.forEach((key) => {
             // console.log(key);
             let odata = Object.values(ndata[key]);
             let obj = [odata[0], odata[1], odata[2], odata[3]];
-            let date = new Date().getTime(key);
             // console.log(obj, date);
             finaldata.push({ x: key, y: obj });
         });

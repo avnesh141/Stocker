@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import "./Signup.css";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
-  const [cpass, spass] = useState(null);
 const user=JSON.parse(localStorage.getItem("user"));
 
   const [credential, setcredential] = useState({
@@ -14,10 +12,7 @@ const user=JSON.parse(localStorage.getItem("user"));
     email: user.email,
     password: "",
   });
-  const onchangecnf = (e) => {
-    let pass = e.target.value;
-    spass(pass);
-  };
+
   const onchange = (e) => {
     setcredential({ ...credential, [e.target.name]: e.target.value });
   };

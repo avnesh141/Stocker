@@ -93,17 +93,6 @@ const BtnWrapper = styled.div`
     margin: 0 auto;
   }
 `;
-const GreyDiv = styled.div`
-  width: 30%;
-  height: 700px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 0;
-  @media (max-width: 960px) {
-    display: none;
-  }
-`;
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -139,17 +128,6 @@ const QuotesWrapper = styled.div`
   left: -20px;
   top: -10px;
 `;
-const DotsWrapper = styled.div`
-  position: absolute;
-  right: -100px;
-  bottom: 100px;
-  z-index: 2;
-  @media (max-width: 960px) {
-    right: 100px;
-  }
-  @media (max-width: 560px) {
-    display: none;
-  }
-`;
+
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "./CryptoCard.css";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
