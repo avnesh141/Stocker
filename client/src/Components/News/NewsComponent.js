@@ -9,6 +9,7 @@ function NewsComponent() {
   const funcData = async () => {
     const response = await fetch(url);
     const aa = await response.json();
+    console.log(aa);
     setdata(aa["feed"].slice(0,20));
   }
   useEffect(() => {

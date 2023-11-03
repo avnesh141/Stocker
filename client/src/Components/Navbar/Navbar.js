@@ -44,21 +44,21 @@ const Navbar = () => {
     }
     setCompanies(comp);
     comp = [];
-    if (e.target.length === 0) {
-      document.getElementById("sugg").classList.add("display-none");
-      document.getElementById("sugg").classList.remove("display-flex");
+    // if (e.target.length === 0) {
+    //   document.getElementById("sugg").classList.add("display-none");
+    //   document.getElementById("sugg").classList.remove("display-flex");
 
-      setActive(0);
-    } else {
-      document.getElementById("sugg").classList.add("display-flex");
-      document.getElementById("sugg").classList.remove("display-none");
-      setActive(1);
-    }
-    if (active) {
-      document.getElementById("sugg").classList.add("active-search");
-    } else {
-      document.getElementById("sugg").classList.remove("active-search");
-    }
+    //   setActive(0);
+    // } else {
+    //   document.getElementById("sugg").classList.add("display-flex");
+    //   document.getElementById("sugg").classList.remove("display-none");
+    //   setActive(1);
+    // }
+    // if (active) {
+    //   document.getElementById("sugg").classList.add("active-search");
+    // } else {
+    //   document.getElementById("sugg").classList.remove("active-search");
+    // }
   };
 
   useEffect(() => {
