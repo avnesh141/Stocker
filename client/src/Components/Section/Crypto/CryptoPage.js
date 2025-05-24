@@ -23,13 +23,13 @@ function CryptoPage() {
     const cdata = await fetch(url);
     const json = await cdata.json();
     setCoinData(json);
-    // console.log(json);
+    console.log(json);
     setdata({
-      company: coindata.name,
+      company: json.name,
       type: "crypto",
-      symbol: coindata.id,
+      symbol: json.id,
       number: 0,
-      price: coindata.market_data.current_price.inr,
+      price: json.market_data.current_price.inr,
     });
     // console.log(coindata);
     // console.log(json.description.en.replace(/<a[^>]*>(.*?)<\/a>/g, '$1'));
@@ -70,11 +70,11 @@ function CryptoPage() {
     toast.success(json.message);
     opensell();
     setdata({
-      company: coindata.name,
+      company: coindata?.name,
       type: "crypto",
-      symbol: coindata.id,
+      symbol: coindata?.id,
       number: 0,
-      price: coindata.market_data.current_price.inr,
+      price: coindata?.market_data.current_price.inr,
     });
   };
 
@@ -93,11 +93,11 @@ function CryptoPage() {
     toast.success(json.message);
     openbuy();
     setdata({
-      company: coindata.name,
+      company: coindata?.name,
       type: "crypto",
-      symbol: coindata.id,
+      symbol: coindata?.id,
       number: 0,
-      price: coindata.market_data.current_price.inr,
+      price: coindata?.market_data.current_price.inr,
     });
   };
 
@@ -115,11 +115,11 @@ function CryptoPage() {
 
   const onchange = (e) => {
     setdata({
-      company: coindata.name,
+      company: coindata?.name,
       type: "crypto",
-      symbol: coindata.id,
+      symbol: coindata?.id,
       number: e.target.value,
-      price: coindata.market_data.current_price.inr,
+      price: coindata?.market_data.current_price.inr,
     });
   };
 
@@ -127,7 +127,7 @@ function CryptoPage() {
   useEffect(() => {
     func();
     console.log(window.location.pathname);
-  }, [window.location.pathname])
+  }, [window.location.pathname,id])
 
   return (
     <div>
@@ -217,7 +217,7 @@ function CryptoPage() {
           </div>
         </>
       }
-      {coindata === undefined &&
+      {!coindata &&
         <Loader />
       }
     </div>

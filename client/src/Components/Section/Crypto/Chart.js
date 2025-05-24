@@ -3,13 +3,15 @@ import Chart from 'react-apexcharts';
 const CandlestickChart = (props) => {
     const [data, setdata] = useState([]);
     const func = async () => {
-        const url=`https://api.coingecko.com/api/v3/coins/${props.name}/ohlc?vs_currency=inr&days=max`;
+        const url=`https://api.coingecko.com/api/v3/coins/${props.name}/ohlc?vs_currency=usd&days=365`;
         const response = await fetch(url);
         const parseData = await response.json();
         // console.log((parseData));
         const finData=Object.values(parseData);
+        // console.log(finData);
         setdata(finData);
     }
+    
     useEffect(() => {
         func();
     }, [])

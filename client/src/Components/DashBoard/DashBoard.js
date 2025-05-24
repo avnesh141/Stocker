@@ -50,6 +50,7 @@ const[ch,setch]=useState(false);
         authtoken: JSON.stringify(localStorage.getItem("token")),
       },
     });
+    console.log(response);
     const newuser = await response.json();
     newuser.date = newuser.date.slice(0, 10);
     setuser(newuser);

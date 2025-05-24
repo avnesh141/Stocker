@@ -95,7 +95,7 @@ router.get("/getuser", fetchuser, async (req, res) => {
     const userid = req.user.id;
     const user = await User.findById(userid).select("-password");
     // console.log("qq"+user);
-    res.send(user);
+    res.json({user});
   } catch (error) {
     // console.log("Good Bye");
     
